@@ -1,0 +1,25 @@
+#summary One-sentence summary of this page.
+
+= Introdução =
+
+Esta página foi feita para mostrar como utilizar o pacote *UFPR.sty*, que é um estilo que adapta a forma canônica de trabalhos acadêmicos utilizando a classe  *abntex2.cls*.
+
+O uso da classe é exemplificado a partir do uso de alguns arquivos. Estes arquivos são definidos de acordo com o seu uso na formatação do texto do trabalho acadêmico. 
+
+
+|| *Arquivo* || *Função* ||
+|| main.tex || programa principal||
+|| 00-dados.tex || entrada de dados ||
+|| 00-pacotes.tex || pacotes carregados no modelo ||
+|| 00-pretextual.tex || processamento dos elementos pre-textuais ||
+|| UFPR.sty || ajusta do modelo canônico às normas  UFPR ||
+|| referencias.bib || arquivo de referências bibliográficas ||
+
+A utilização desta forma de uso torna mais didático e prático a utilização do estilo.
+
+= Detalhes =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
