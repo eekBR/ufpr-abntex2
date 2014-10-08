@@ -8,7 +8,7 @@ O uso da classe é exemplificado a partir do uso de alguns arquivos. Estes arqui
 
 
 || *Arquivo* || *Função* ||
-|| main.tex || programa principal||
+|| [Principal main.tex] || programa principal||
 || 00-dados.tex || entrada de dados ||
 || 00-pacotes.tex || pacotes carregados no modelo ||
 || 00-pretextual.tex || processamento dos elementos pre-textuais ||
