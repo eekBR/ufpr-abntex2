@@ -9,9 +9,9 @@ O uso da classe é exemplificado a partir do uso de alguns arquivos. Estes arqui
 
 || *Arquivo* || *Função* ||
 || [Principal main.tex] || programa principal||
-|| 00-dados.tex || entrada de dados ||
-|| 00-pacotes.tex || pacotes carregados no modelo ||
-|| 00-pretextual.tex || processamento dos elementos pre-textuais ||
+|| [DadosEntrada 00-dados.tex] || entrada de dados ||
+|| [Pacotes 00-pacotes.tex] || pacotes carregados no modelo ||
+|| [PreTextual 00-pretextual.tex] || processamento dos elementos pre-textuais ||
 || UFPR.sty || ajusta do modelo canônico às normas  UFPR ||
 || referencias.bib || arquivo de referências bibliográficas ||
 
