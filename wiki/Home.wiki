@@ -12,7 +12,7 @@ O uso da classe é exemplificado a partir do uso de alguns arquivos. Estes arqui
 || [DadosEntrada 00-dados.tex] || entrada de dados ||
 || [Pacotes 00-pacotes.tex] || pacotes carregados no modelo ||
 || [PreTextual 00-pretextual.tex] || processamento dos elementos pre-textuais ||
-|| UFPR.sty || ajusta do modelo canônico às normas  UFPR ||
+|| [https://code.google.com/p/ufpr-abntex/source/browse/UFPR.sty UFPR.sty] || ajusta do modelo canônico às normas  UFPR ||
 || referencias.bib || arquivo de referências bibliográficas ||
 
 A utilização desta forma de uso torna mais didático e prático a utilização do estilo.
