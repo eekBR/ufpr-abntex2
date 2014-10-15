@@ -16,3 +16,9 @@ O uso da classe é exemplificado a partir do uso de alguns arquivos. Estes arqui
 || referencias.bib || arquivo de referências bibliográficas ||
 
 A utilização desta forma de uso torna mais didático e prático a utilização do estilo.
+
+
+Quer experimentar uma versão editável: [https://www.sharelatex.com/project/543eaa8daa85d6a6034c9ef2 sharelatex]
+
+Quer ver uma versão não editável:
+[https://www.sharelatex.com/project/543ea5b5aa85d6a6034c9d2e sharelatex]
