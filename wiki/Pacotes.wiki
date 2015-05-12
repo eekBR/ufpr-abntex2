@@ -2,7 +2,11 @@
 % ---
 % Pacotes básicos 
 % ---
-\usepackage{lmodern}			% Usa a fonte Latin Modern			
+%\usepackage{lmodern}			% Usa a fonte Latin Modern	
+
+\usepackage{helvet}                     % Para utilizar a fonte "Arial"
+\renewcommand{\familydefault}{\sfdefault}
+		
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
