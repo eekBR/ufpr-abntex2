@@ -1,0 +1,274 @@
+%%
+%% Customizações do abnTeX2 (http://abnTeX2.googlecode.com) 
+%%
+%% Tihs may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Emílio Eiji Kavamura,
+% eek.edu@outlook.com; emilio.kavamura@ufpr.br
+%
+%
+%% Further information about abnTeX2 are available on http://abntex2.googlecode.com/
+%%
+% https://code.google.com/p/abntex2/issues/ 
+
+\ProvidesPackage{UFPR}[2014/10/02 Criacao desta customizacao do abnTeX2 para UFPR]
+
+%----------------------------------------------------------------------------
+% Hifenizacao e caracteres especiais portugues-brasil por padrao
+%----------------------------------------------------------------------------
+\RequirePackage[brazil]{babel}
+
+
+%----------------------------------------------------------------------------
+% Espaçamentos entre linhas e parágrafos 
+%----------------------------------------------------------------------------
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.5cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{2 mm}  % tente também \onelineskip
+
+% Controle do espaçamento entre a legenda e a fonte (e nota) de figuras e tabelas}:
+\setlength{\abovecaptionskip}{0 mm}
+\setlength{\belowcaptionskip}{1 mm}
+
+
+
+%----------------------------------------------------------------------------
+%-Código de geração de lista de siglas, símbolos e verbetes copiado de
+%%https://code.google.com/p/abntex2/issues/detail?id=104#c13
+%----------------------------------------------------------------------------
+%\ProvidesPackage{abntex2glossaries}[2014/09/01 Criacao desta do pacote glossaries para o abnTeX2]
+%https://code.google.com/p/abntex2/issues/detail?id=104#c13
+% --- Controla a geração de listas de siglas, símbolos e glossário
+\RequirePackage[style=long]{glossaries}
+%----------------------------------------------------------------------------
+
+%Definição das listas de glossários e parâmertos para compilação.
+%-------------------------------------------------------
+\newglossary{verbetes}{verbetes}{vrl}{verbetes}
+\newglossary{siglas}{siglas}{sgl}{siglas}
+\newglossary{simbolos}{simbolos}{sbl}{simbolos}
+
+
+%Definição dos comandos para exibição das listas individuais.
+%-----------------------------------------------------------
+\newcommand{\listarsiglas}{\printglossary[type=siglas, title=\listadesiglasname, nonumberlist=true]}
+\newcommand{\listarsimbolos}{\printglossary[type=simbolos, title=\listadesimbolosname, nonumberlist=true]}
+\newcommand{\listarverbetes}{\printglossary[type=verbetes]}
+
+%Definição dos Comandos para inclusão no texto das siglas.
+
+\newcommand{\verbete}[3]{
+	\newglossaryentry{glossary}{name=#1, description={#2}, plural={#3}, type=verbetes}
+	\gls{#1}
+}
+
+\newcommand{\sigla}[2]{
+	\newacronym[type=siglas]{#1}{#1}{#2}
+	\gls{#1}
+}
+
+\newcommand{\simbolo}[3]{
+	\newglossaryentry{#1}{type=simbolos, name=#3, text=#3, description=#2,symbol=#3, sort=def}
+	\gls{#1}
+}
+
+
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+% Lista de abreviaturas e siglas
+\renewenvironment{siglas}{%
+  \pretextualchapter{\listadesiglasname}
+  \begin{symbols}
+}{%
+  \end{symbols}
+  %\cleardoublepage  %foi comentado para que não pule uma página
+}
+% ---
+
+%----------------------------------------------------------------------------- 
+% Fontes padroes de part, chapter, section, subsection e subsubsection
+%----------------------------------------------------------------------------- 
+\renewcommand{\ABNTEXchapterfont}{\normalfont}
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
+
+\renewcommand{\ABNTEXpartfont}{\ABNTEXchapterfont}
+\renewcommand{\ABNTEXpartfontsize}{\ABNTEXchapterfontsize}
+
+\renewcommand{\ABNTEXsectionfont}{\ABNTEXchapterfont}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+
+\renewcommand{\ABNTEXsubsectionfont}{\ABNTEXsectionfont}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+
+\renewcommand{\ABNTEXsubsubsectionfont}{\ABNTEXsubsectionfont}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+
+\renewcommand{\ABNTEXsubsubsubsectionfont}{\ABNTEXsubsectionfont}
+\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
+%----------------------------------------------------------------------------- 
+
+
+%----------------------------------------------------------------------------- 
+% Nomes constantes do abnTeX2 em portugues (definicoes padroes)
+%----------------------------------------------------------------------------- 
+\renewcommand{\folhadeaprovacaoname}{TERMO DE APROVA\c{C}\~AO}
+\renewcommand{\anexosname}{ANEXOS}
+\renewcommand{\apendicesname}{AP\^ENDICES}
+\renewcommand{\orientadorname}{Orientador:}
+\renewcommand{\coorientadorname}{Coorientador:}
+\renewcommand{\fontename}{Fonte}
+\renewcommand{\notaname}{Nota}
+\renewcommand{\bibname}{REFER\^ENCIAS}
+\renewcommand{\indexname}{\'INDICE}
+
+
+%-----------------------------------------------------------------------------   
+% Impressão da Capa
+%----------------------------------------------------------------------------- 
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+    \ABNTEXchapterfont \MakeUppercase\imprimirinstituicao
+    
+    \vspace{40mm}
+    
+    \ABNTEXchapterfont \MakeUppercase\imprimirautor
+
+    \vspace{40mm}
+    \ABNTEXchapterfont\MakeUppercase\imprimirtitulo
+    \vfill
+    
+     %\large
+     \MakeUppercase\imprimirlocal
+     
+     %\large
+     \imprimirdata
+    
+    \vspace*{1cm}
+  \end{capa}
+}
+%----------------------------------------------------------------------------- 
+
+
+%----------------------------------------------------------------------------- 
+% Folha de rosto
+%-----------------------------------------------------------------------------
+%   usar \imprimirfolhaderosto* casodeseje imprimir algo no verso da
+%   página no caso de estar no modo twoside. Util para imprimir a Ficha
+%   Bibliografica. Porem, se estiver no modo oneside, a versao sem estrela
+%   é identica.
+%----------------------------------------------------------------------------- 
+\renewenvironment{folhaderosto}[1][\folhaderostoname]{\clearpage\PRIVATEbookmarkthis{#1}}{\cleardoublepage}
+\renewenvironment{folhaderosto*}[1][\folhaderostoname]{\clearpage\PRIVATEbookmarkthis{#1}}{\newpage}%
+
+%----------------------------------------------------------------------------- 
+% Conteudo padrao da Folha de Rosto
+%----------------------------------------------------------------------------- 
+\makeatletter
+\renewcommand{\folhaderostocontent}{
+  \begin{center}
+
+    %\vspace*{1cm}
+    {\ABNTEXchapterfont
+    %\large
+    \MakeUppercase\imprimirautor}
+	
+    \vspace*{\fill}%\vspace*{\fill}
+    \begin{center}
+      \ABNTEXchapterfont
+      %\bfseries
+      %\Large
+      \MakeUppercase\imprimirtitulo
+    \end{center}
+    \vspace*{\fill}
+	
+    \abntex@ifnotempty{\imprimirpreambulo}{%
+      \hspace{.45\textwidth}
+      \begin{minipage}{.5\textwidth}
+      	\SingleSpacing\small
+         \imprimirpreambulo\par
+         \imprimirorientadorRotulo~\imprimirorientador\par
+            \abntex@ifnotempty{\imprimircoorientador}
+         \imprimircoorientadorRotulo~\imprimircoorientador
+       \end{minipage}%
+  
+       \vspace*{\fill}
+    }%
+
+    {  \MakeUppercase\imprimirlocal}
+    \par
+    {    \imprimirdata}
+    \vspace*{1cm}
+
+  \end{center}
+}
+\makeatother
+
+
+%----------------------------------------------------------------------------- 
+% CONFIGURACAO DO SUMARIO   
+%----------------------------------------------------------------------------- 
+% Modifica o espaçamento no sumário 
+% Nao ha espacos, exceto para as entradas de capitulos 
+\setlength{\cftbeforeparagraphskip}{0pt} 
+\setlength{\cftbeforesubsectionskip}{0pt} 
+\setlength{\cftbeforesectionskip}{0pt} 
+\setlength{\cftbeforesubsubsectionskip}{0pt} 
+\setlength{\cftbeforechapterskip}{\onelineskip} 
+
+% Alteração da indentação dos itens do sumário
+\cftsetindents{section}{0pt}{20pt}
+\cftsetindents{subsection}{0pt}{30pt}
+\cftsetindents{subsubsection}{0pt}{40pt}
+
+% Modifica a formatacao dos textos 
+ 
+% Secao Primaria (Chapter): Caixa alta, Negrito, tamanho 12 
+\makeatletter 
+\settocpreprocessor{chapter}{% 
+  \let\tempf@rtoc\f@rtoc% 
+  \def\f@rtoc{% 
+  \texorpdfstring{\bfseries\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}% 
+} 
+\makeatother 
+
+
+%----------------------------------------------------------------------------- 
+% CONFIGURACAO DO ESTILO DE PÁGINA TEXTUAL 
+%-----------------------------------------------------------------------------
+%%criar um novo estilo de cabeçalhos e rodapés
+\makepagestyle{textualUFPR}
+  %%cabeçalhos
+  \makeevenhead{textualUFPR} %%pagina par
+     {\thepage}%topo par à esquerda}
+     {}%centro \thepage}
+     {}%direita}
+  \makeoddhead{textualUFPR} %%pagina ímpar ou com oneside
+     {}%topo ímpar/oneside à esquerda}
+     {}%centro\thepage}
+     {\thepage}%direita}
+  %\makeheadrule{textualUFPR}{\textwidth}{\normalrulethickness} %linha
+  %% rodapé
+  \makeevenfoot{textualUFPR}
+     {}%rodapé par à esquerda} %%pagina par
+     {}%centro \thepage}
+     {}%direita} 
+  \makeoddfoot{textualUFPR} %%pagina ímpar ou com oneside
+     {}%rodapé ímpar/onside à esquerda}
+     {}%centro \thepage}
+     {}%direita}
