@@ -25,7 +25,11 @@
 % Hifenizacao e caracteres especiais portugues-brasil por padrao
 %----------------------------------------------------------------------------
 \RequirePackage[brazil]{babel}
-
+%----------------------------------------------------------------------------
+% Fontes em Helvet - Arial
+%----------------------------------------------------------------------------
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
 
 %----------------------------------------------------------------------------
 % Espaçamentos entre linhas e parágrafos 
@@ -131,8 +135,10 @@
 \renewcommand{\apendicesname}{AP\^ENDICES}
 \renewcommand{\orientadorname}{Orientador:}
 \renewcommand{\coorientadorname}{Coorientador:}
-\renewcommand{\fontename}{Fonte}
-\renewcommand{\notaname}{Nota}
+\newcommand{\orientadoraname}{Orientadora:}    
+\newcommand{\coorientadoraname}{Coorientadora:}
+\renewcommand{\fontename}{Fonte:~}
+\renewcommand{\notaname}{Nota:~}  
 \renewcommand{\bibname}{\uppercase{REFER\^ENCIAS}}
 \renewcommand{\indexname}{\'INDICE}
 
@@ -140,6 +146,20 @@
 \renewcommand{\cftfigurename}{FIGURA\enspace}   
 \renewcommand{\cfttablename}{TABELA\enspace}
 
+% Comandos de dados - orientadora
+\providecommand{\imprimirorientadoraRotulo}{}
+\providecommand{\imprimirorientadora}{}
+\newcommand{\orientadora}[2][\orientadoraname]%
+  {\renewcommand{\imprimirorientadoraRotulo}{#1}%
+   \renewcommand{\imprimirorientadora}{#2}}
+
+% Comandos de dados - coorientadora
+\providecommand{\imprimircoorientadoraRotulo}{}
+\providecommand{\imprimircoorientadora}{}
+\newcommand{\coorientadora}[2][\coorientadoraname]%
+  {\renewcommand{\imprimircoorientadoraRotulo}{#1}%
+   \renewcommand{\imprimircoorientadora}{#2}}
+   
 %-----------------------------------------------------------------------------   
 % Impressão da Capa
 %----------------------------------------------------------------------------- 
