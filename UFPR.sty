@@ -224,10 +224,24 @@
       \hspace{.45\textwidth}
       \begin{minipage}{.5\textwidth}
       	\SingleSpacing\small
-         \imprimirpreambulo\par
-         \imprimirorientadorRotulo~\imprimirorientador\par
-            \abntex@ifnotempty{\imprimircoorientador}
-         \imprimircoorientadorRotulo~\imprimircoorientador
+         \imprimirpreambulo
+         
+                  
+         \abntex@ifnotempty{\imprimirorientador}
+         {\imprimirorientadorRotulo~\imprimirorientador}
+         \abntex@ifnotempty{\imprimirorientadora}
+		{\imprimirorientadoraRotulo~\imprimirorientadora}
+		\abntex@ifnotempty{\imprimircoorientador}
+		{\par\imprimircoorientadorRotulo~\imprimircoorientador}%
+		{\par\imprimircoorientadoraRotulo~\imprimircoorientadora}%
+
+		\ifthenelse{\equal{\imprimirscoorientadora}{} \AND \equal{\imprimirscoorientador}{}}{}
+		{
+		\ifthenelse{\equal{\imprimirscoorientador}{}}{}
+		{\par\imprimirscoorientadorRotulo~\imprimirscoorientador}
+		\ifthenelse{\equal{\imprimirscoorientadora}{}}{}
+		{\par\imprimirscoorientadoraRotulo~\imprimirscoorientadora}
+		}%
        \end{minipage}%
   
        \vspace*{\fill}
