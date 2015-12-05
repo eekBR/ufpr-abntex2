@@ -57,15 +57,19 @@
         sumario=tradicional             % título no formato tradicional
         ]{abntex2}
 
+\usepackage{UFPR}
 \input{00-pacotes}
 \input{00-dados}
-\usepackage{UFPR}
+
 
 
 % ----------------------------------------------------------
 % Início do documento
 % ----------------------------------------------------------
 \begin{document}
+
+\renewcommand{\bibname}{\uppercase{REFER\^ENCIAS}}
+
 % Adequando o uppercase titulo dos elementos nas suas respectivas legendas
 \renewcommand{\tablename}{TABELA }
 \renewcommand{\figurename}{FIGURA }
