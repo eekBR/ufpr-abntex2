@@ -11,9 +11,16 @@
 %%
 %% This work has the LPPL maintenance status `maintained'.
 %% 
-%% The Current Maintainer of this work is the abnTeX2 team, led
-%% by Lauro César Araujo. Further information are available on 
+%% The Current Maintainer of this work is Emílio Eiji Kavamura,
+%% eek.edu@outlook.com; emilio.kavamura@ufpr.br
+%% Further information about abnTeX2 are available on 
+%%
 %% http://abntex2.googlecode.com/
+%%
+%% https://code.google.com/p/abntex2/issues/ 
+%% Further information about UFPR abnTeX2 are available on 
+%%
+%% https://github.com/eekBR/ufpr-abntex/
 %%
 %% This work consists of the files 
 % 
@@ -67,12 +74,7 @@
 % Início do documento
 % ----------------------------------------------------------
 \begin{document}
-
 \renewcommand{\bibname}{\uppercase{REFER\^ENCIAS}}
-
-% Adequando o uppercase titulo dos elementos nas suas respectivas legendas
-\renewcommand{\tablename}{TABELA }
-\renewcommand{\figurename}{FIGURA }
 
 \input{00-pretextual}
 
@@ -88,6 +90,10 @@
 \chapter[INTRODUÇÃO]{INTRODUÇÃO}
 %\addcontentsline{toc}{chapter}{INTRODUÇÃO}
 
+
+\begin{itemize}
+ \item para inserir uma sigla: \verb|\sigla|\{ABNT\}{Associa\c{c}\~ao Brasileira de Normas T\'ecnicas}
+\end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -106,7 +112,7 @@
 
 \begin{figure}[!ht]
  \centering
- \includegraphics[width=.50\textwidth]{EXEMPLO}
+ \includegraphics[width=.50\textwidth]{figure}
  
  \caption{teste DE FIGURAS}
  \label{fig:01}
@@ -121,7 +127,7 @@
 %\input{cap01}
 \chapter{TESTE}
 \sigla{ABC}{Santo André, São Bernardo do Campo e São Caetano do Sul}
-%\simbolo{$\alpha$}{alfa}
+% \simbolo{$\alpha$}{alfa}
 
 % ----------------------------------------------------------
 % PARTE DA PREPARAÇÃO DA PESQUISA
