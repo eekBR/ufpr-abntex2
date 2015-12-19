@@ -18,8 +18,24 @@
 %% Further information about abnTeX2 are available on http://abntex2.googlecode.com/
 %%
 % https://code.google.com/p/abntex2/issues/ 
+%% Further information about abnTeX2 are available on 
 
-\ProvidesPackage{UFPR}[2014/10/02 Criacao desta customizacao do abnTeX2 para UFPR]
+%%http://abntex2.googlecode.com/
+
+%% https://github.com/eekBR/ufpr-abntex/
+
+%%
+%% This work consists of the files 
+% 
+%          main.tex   programa principal
+%      00-dados.tex   entrada de dados 
+%    00-pacotes.tex   pacotes carregados no modelo
+% 00-pretextual.tex   processamento dos elementos pre-textuais
+%          UFPR.sty   ajusta do modelo canonico às normas  UFPR
+%
+%    referencias.bib
+%
+\ProvidesPackage{UFPR}[2015/12/05 Criacao desta customizacao do abnTeX2 para UFPR]
 
 %----------------------------------------------------------------------------
 % Hifenizacao e caracteres especiais portugues-brasil por padrao
@@ -135,16 +151,15 @@
 \renewcommand{\apendicesname}{AP\^ENDICES}
 \renewcommand{\orientadorname}{Orientador:}
 \renewcommand{\coorientadorname}{Coorientador:}
-\newcommand{\orientadoraname}{Orientadora:}    
-\newcommand{\coorientadoraname}{Coorientadora:}
-\renewcommand{\fontename}{Fonte:~}
-\renewcommand{\notaname}{Nota:~}  
+\newcommand{\orientadoraname}{Orientadora:}     % 2015/12/05
+\newcommand{\coorientadoraname}{Coorientadora:} % 2015/12/05
+\newcommand{\scoorientadorname}{Coorientador:}  % 2015/12/05
+\newcommand{\scoorientadoraname}{Coorientadora:}% 2015/12/05
+\renewcommand{\fontename}{Fonte:~}% 2015/12/05
+\renewcommand{\notaname}{Nota:~}  % 2015/12/05
 \renewcommand{\bibname}{\uppercase{REFER\^ENCIAS}}
 \renewcommand{\indexname}{\'INDICE}
 
-% Adequando o uppercase titulo dos elementos nas suas respectivas LISTAS
-\renewcommand{\cftfigurename}{FIGURA\enspace}   
-\renewcommand{\cfttablename}{TABELA\enspace}
 
 % Comandos de dados - orientadora
 \providecommand{\imprimirorientadoraRotulo}{}
@@ -159,7 +174,25 @@
 \newcommand{\coorientadora}[2][\coorientadoraname]%
   {\renewcommand{\imprimircoorientadoraRotulo}{#1}%
    \renewcommand{\imprimircoorientadora}{#2}}
+
+% Comandos de dados - segundo coorientador
+\providecommand{\imprimirscoorientadorRotulo}{}
+\providecommand{\imprimirscoorientador}{}
+\newcommand{\scoorientador}[2][\scoorientadorname]%
+  {\renewcommand{\imprimirscoorientadorRotulo}{#1}%
+   \renewcommand{\imprimirscoorientador}{#2}}
    
+   % Comandos de dados - segunda coorientadora
+\providecommand{\imprimirscoorientadoraRotulo}{}
+\providecommand{\imprimirscoorientadora}{}
+\newcommand{\scoorientadora}[2][\scoorientadoraname]%
+  {\renewcommand{\imprimirscoorientadoraRotulo}{#1}%
+   \renewcommand{\imprimirscoorientadora}{#2}}
+   
+% Adequando o uppercase titulo dos elementos nas suas respectivas LISTAS
+\renewcommand{\cftfigurename}{FIGURA\enspace}   
+\renewcommand{\cfttablename}{TABELA\enspace}
+
 %-----------------------------------------------------------------------------   
 % Impressão da Capa
 %----------------------------------------------------------------------------- 
@@ -226,26 +259,33 @@
       	\SingleSpacing\small
          \imprimirpreambulo
          
-                  
          \abntex@ifnotempty{\imprimirorientador}
          {\imprimirorientadorRotulo~\imprimirorientador}
          \abntex@ifnotempty{\imprimirorientadora}
-		{\imprimirorientadoraRotulo~\imprimirorientadora}
-		\abntex@ifnotempty{\imprimircoorientador}
-		{\par\imprimircoorientadorRotulo~\imprimircoorientador}%
-		{\par\imprimircoorientadoraRotulo~\imprimircoorientadora}%
+			{\imprimirorientadoraRotulo~\imprimirorientadora}
+			\abntex@ifnotempty{\imprimircoorientador}
+			{\par\imprimircoorientadorRotulo~\imprimircoorientador}%
+			{\par\imprimircoorientadoraRotulo~\imprimircoorientadora}%
 
-		\ifthenelse{\equal{\imprimirscoorientadora}{} \AND \equal{\imprimirscoorientador}{}}{}
-		{
-		\ifthenelse{\equal{\imprimirscoorientador}{}}{}
-		{\par\imprimirscoorientadorRotulo~\imprimirscoorientador}
-		\ifthenelse{\equal{\imprimirscoorientadora}{}}{}
-		{\par\imprimirscoorientadoraRotulo~\imprimirscoorientadora}
-		}%
+			\ifthenelse{\equal{\imprimirscoorientadora}{} \AND \equal{\imprimirscoorientador}{}}{}
+			{
+			\ifthenelse{\equal{\imprimirscoorientador}{}}{}
+			{\par\imprimirscoorientadorRotulo~\imprimirscoorientador}
+			\ifthenelse{\equal{\imprimirscoorientadora}{}}{}
+			{\par\imprimirscoorientadoraRotulo~\imprimirscoorientadora}
+			}%
+			%
+%
+%          \imprimirorientadorRotulo~\imprimirorientador\par
+%             \abntex@ifnotempty{\imprimircoorientador}
+% 				\imprimircoorientadorRotulo~\imprimircoorientador
        \end{minipage}%
   
        \vspace*{\fill}
     }%
+
+\vspace*{\fill}
+
 
     {  \MakeUppercase\imprimirlocal}
     \par
@@ -290,6 +330,7 @@
 %-----------------------------------------------------------------------------
 %%criar um novo estilo de cabeçalhos e rodapés
 \makepagestyle{textualUFPR}
+  \pagenumbering{arabic} % volta à numeração arábica
   %%cabeçalhos
   \makeevenhead{textualUFPR} %%pagina par
      {\thepage}%topo par à esquerda}
