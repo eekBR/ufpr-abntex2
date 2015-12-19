@@ -57,9 +57,69 @@
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
 \preambulo{Trabalho apresentado como requisito parcial para a obtenção do grau de Bacharel em Expressão Gráfica no curso de Expressão Gráfica, Setor de Exatas da Universidade Federal do Paraná.}
+
 % ---
 \newcommand{
-\EpigrafeTexto}{\color{blue}
+\FichaCatalografica}{%\color{blue}
+
+\imprimirautor
+	
+	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+	\imprimirlocal, \imprimirdata-
+	
+	\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
+	
+	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+	
+	\hspace{0.5cm}
+	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+	\imprimirdata.}\\
+	
+	\hspace{0.5cm}
+		1. Palavra-chave1.
+		
+		2. Palavra-chave2.
+		
+		I. \imprimirorientador.
+		
+		II. \imprimirinstituicao.
+		
+		III. Faculdade de xxx.
+		
+		IV. Título\\ 			
+	
+	\hspace{8.75cm} CDU 02:141:005.7\\
+}
+
+% ---
+\newcommand{
+\Errata}{%\color{blue}
+Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
+
+\vspace{\onelineskip}
+
+FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
+reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
+rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
+cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
+Zootecnia, Universidade de São Paulo, São Paulo, 2011.
+
+\begin{table}[htb]
+\center
+\footnotesize
+\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
+  \hline
+   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
+    \hline
+    1 & 10 & auto-conclavo & autoconclavo\\
+   \hline
+\end{tabular}
+\end{table}
+}
+
+% ---
+\newcommand{
+\EpigrafeTexto}{%\color{blue}
 \textit{``Não vos amoldeis às estruturas deste mundo, \\
 		mas transformai-vos pela renovação da mente, \\
 		a fim de distinguir qual é a vontade de Deus: \\
@@ -68,27 +128,27 @@
 }
 % ---
 \newcommand{
-\ResumoTexto}{\color{blue}
+\ResumoTexto}{%\color{blue}
 Segundo a \citeonline[3.1-3.2]{abntex2modelo}, o resumo deve ressaltar o  objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão destes itens dependem do tipo de resumo (informativo ou indicativo) e do tratamento que cada item recebe no documento original. O resumo deve ser precedido da referência do documento, com exceção do resumo inserido no próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do  resumo, antecedidas da expressão Palavras-chave:, separadas entre si por ponto e finalizadas também por ponto.
 }
 % ---
 \newcommand{
-\PalavraschaveTexto}{\color{blue}
+\PalavraschaveTexto}{%\color{blue}
 latex. abntex. editoração de texto.
 }
 % ---
 \newcommand{
-\AbstractTexto}{\color{blue}
+\AbstractTexto}{%\color{blue}
 This is the english abstract.
 }
 % ---
 \newcommand{
-\KeywordsTexto}{\color{blue}
+\KeywordsTexto}{%\color{blue}
 latex. abntex. text editoration.
 }
 % ---
 \newcommand{
-\AgradecimentosTexto}{\color{blue}
+\AgradecimentosTexto}{%\color{blue}
 Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson, Leslie H. Watter, Bruno Parente Lima, Flávio de  Vasconcellos Corrêa, Otavio Real Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
 projeto abn\TeX\ foram extraídos de \url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que contribuíram para que a produção de trabalhos acadêmicos conforme as normas ABNT com \LaTeX\ fosse possível.
 
@@ -102,7 +162,7 @@ projeto abn\TeX\ foram extraídos de \url{http://codigolivre.org.br/projects/abn
 }
 % ---
 \newcommand{
-\DedicatoriaTexto}{\color{blue}
+\DedicatoriaTexto}{%\color{blue}
 \textit{ Este trabalho é dedicado às crianças adultas que,\\
    quando pequenas, sonharam em se tornar cientistas.}
 	}
