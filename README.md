@@ -12,11 +12,13 @@ O modelo criado:
  00-pretextual.tex 	
    Utilização dos arquivos de entrada de dados e de pacotes para criar os elementos prétextuais
 
- UFPR.sty 	é o pacote de estilos
+ UFPR.sty 	 é o pacote de estilos
 	
- main.tex 	arquivo principal da customização, é o arquivo que deve ser compilado.
+ main.tex 	 arquivo principal da customização, é o arquivo que deve ser compilado.
  
  referencias.bib exemplo de um arquivo de referências bibliográficas para exemplificar o uso do abntex2cite
+
+ Exemplo.jpg     arquivo da imagem de exemplo:  https://goo.gl/IpBzr1
 
 ==========================
 Instruções para o uso da customização:
