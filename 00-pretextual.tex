@@ -35,29 +35,7 @@
 	\hrule							% Linha horizontal
 	\begin{center}					% Minipage Centralizado
 	\begin{minipage}[c]{12.5cm}		% Largura
-	
-	\imprimirautor
-	
-	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
-	\imprimirlocal, \imprimirdata-
-	
-	\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
-	
-	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
-	
-	\hspace{0.5cm}
-	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
-	\imprimirdata.}\\
-	
-	\hspace{0.5cm}
-		1. Palavra-chave1.
-		2. Palavra-chave2.
-		I. \imprimirorientador.
-		II. \imprimirinstituicao.
-		III. Faculdade de xxx.
-		IV. Título\\ 			
-	
-	\hspace{8.75cm} CDU 02:141:005.7\\
+	\FichaCatalografica
 	
 	\end{minipage}
 	\end{center}
@@ -120,30 +98,18 @@ Zootecnia, Universidade de São Paulo, São Paulo, 2011.
       \MakeUppercase\imprimirtitulo
     \end{center}
     \vspace*{\fill}
-    
-    \hspace{.45\textwidth}
+    \begin{minipage}{\textwidth}
+    \hspace{.25\textwidth}
     %\begin{minipage}{.5\textwidth}
         \imprimirpreambulo, pela seguinte banca examinadora:
     %\end{minipage}%
+    \end{minipage}
+
+
     \vspace*{\fill}
    \end{center}
        \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
-   \assinatura{%\textbf
-   {Professor} \\ Convidado 1}
-   \assinatura{%\textbf
-   {Professor} \\ Convidado 2}
-   \assinatura{%\textbf
-   {Professor} \\ Convidado 3}
-   %\assinatura{%\textbf{Professor} \\ Convidado 4}
-      
-   \begin{center}
-    \vspace*{0.5cm}
-    %{\large\imprimirlocal}
-    %\par
-    %{\large\imprimirdata}
-    \imprimirlocal, 24 de novembro de 2012.
-    \vspace*{1cm}
-  \end{center}
+   \AssinaAprovacao
   
 \end{folhadeaprovacao}
 % ---
