@@ -83,3 +83,20 @@
 % ---
 \makeindex
 % ---
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Criação do indice de quadros
+ \usepackage{newfloat}
+
+\PrepareListOf{quadro}{%
+\renewcommand{\cftfigpresnum}{Quadro~}}
+
+\DeclareFloatingEnvironment[
+fileext=loq,
+listname={Lista de Quadros},
+name=Quadro,
+%placement=p,
+within= none, % numeracao continua
+%within=section, % numeracao reinicia em cada seccao
+%chapterlistsgaps=off
+]{quadro}
