@@ -265,8 +265,9 @@
 			{\imprimirorientadoraRotulo~\imprimirorientadora}
 			\abntex@ifnotempty{\imprimircoorientador}
 			{\par\imprimircoorientadorRotulo~\imprimircoorientador}%
-			{\par\imprimircoorientadoraRotulo~\imprimircoorientadora}%
-
+			{\abntex@ifnotempty{\imprimircoorientadora}
+				{\par\imprimircoorientadoraRotulo~\imprimircoorientadora}%
+                        }
 			\ifthenelse{\equal{\imprimirscoorientadora}{} \AND \equal{\imprimirscoorientador}{}}{}
 			{
 			\ifthenelse{\equal{\imprimirscoorientador}{}}{}
