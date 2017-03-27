@@ -330,31 +330,31 @@
 % CONFIGURACAO DO ESTILO DE PÁGINA TEXTUAL 
 %-----------------------------------------------------------------------------
 %%criar um novo estilo de cabeçalhos e rodapés
-\makepagestyle{textualUFPR}
-  \pagenumbering{arabic} % volta à numeração arábica
-  %%cabeçalhos
-  \makeevenhead{textualUFPR} %%pagina par
-     {\thepage}%topo par à esquerda}
-     {}%centro \thepage}
-     {}%direita}
-  \makeoddhead{textualUFPR} %%pagina ímpar ou com oneside
-     {}%topo ímpar/oneside à esquerda}
-     {}%centro\thepage}
-     {\thepage}%direita}
-  %\makeheadrule{textualUFPR}{\textwidth}{\normalrulethickness} %linha
-  %% rodapé
-  \makeevenfoot{textualUFPR}
-     {}%rodapé par à esquerda} %%pagina par
-     {}%centro \thepage}
-     {}%direita} 
-  \makeoddfoot{textualUFPR} %%pagina ímpar ou com oneside
-     {}%rodapé ímpar/onside à esquerda}
-     {}%centro \thepage}
-     {}%direita}
-     
+%\makepagestyle{textualUFPR}
+%  \pagenumbering{arabic} % volta à numeração arábica
+%  %%cabeçalhos
+%  \makeevenhead{textualUFPR} %%pagina par
+%     {\thepage}%topo par à esquerda}
+%     {}%centro \thepage}
+%     {}%direita}
+%  \makeoddhead{textualUFPR} %%pagina ímpar ou com oneside
+%     {}%topo ímpar/oneside à esquerda}
+%     {}%centro\thepage}
+%     {\thepage}%direita}
+%  %\makeheadrule{textualUFPR}{\textwidth}{\normalrulethickness} %linha
+%  %% rodapé
+%  \makeevenfoot{textualUFPR}
+%     {}%rodapé par à esquerda} %%pagina par
+%     {}%centro \thepage}
+%     {}%direita} 
+%  \makeoddfoot{textualUFPR} %%pagina ímpar ou com oneside
+%     {}%rodapé ímpar/onside à esquerda}
+%     {}%centro \thepage}
+%     {}%direita}
+\pagestyle{simple}     
 % Adequando o uppercase titulo dos elementos nas suas respectivas legendas
-\renewcommand{\tablename}{TABELA }
-\renewcommand{\figurename}{FIGURA }
+%\renewcommand{\tablename}{TABELA }
+%\renewcommand{\figurename}{FIGURA }
 %\renewcommand{\quadroname}{QUADRO }
 
 % Adequando o hifen entre o nome e o título dos elementos nas suas respectivas listas
