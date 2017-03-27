@@ -24,12 +24,14 @@
 % keywords
 % agradecimentos
 % dedicatoria
+% siglas 
+% simbolos
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{Modelo de\\ trabalho acadêmico com \abnTeX}
+\titulo{\textbf{Modelo de\\ trabalho acadêmico com \abnTeX}}
 \autor{Rodrigo H M}
 \local{Curitiba}
 \data{2015} %Apenas ano 4 dígitos
@@ -58,6 +60,13 @@
 % o nome da instituição e a área de concentração 
 \preambulo{Trabalho apresentado como requisito parcial para a obtenção do grau de Bacharel em Expressão Gráfica no curso de Expressão Gráfica, Setor de Exatas da Universidade Federal do Paraná.}
 
+\newcommand{\imprimirCurso}
+{Programa de P\'os Gradua\c{c}\~ao em Engenharia da Constru\c{c}\~ao Civil}
+
+\newcommand{\imprimirDataDefesa}{
+09 de Dezembro de 2018}
+% ---
+
 % ---
 \newcommand{
 \FichaCatalografica}{%\color{blue}
@@ -77,17 +86,15 @@
 	
 	\hspace{0.5cm}
 	   \begin{minipage}{.70\textwidth}
-	    	1. Palavra-chave1.
-		
-		2. Palavra-chave2.
+	    	1. \PalavraschaveTexto
 		
 		I. \imprimirorientador.
 		
 		II. \imprimirinstituicao.
 		
-		III. Faculdade de xxx.
+		III. \imprimirCurso
 		
-		IV. Título\\ 			
+		IV. \imprimirtitulo\\ 			
 	
 	\hspace{8.75cm} CDU 02:141:005.7\\
 	\end{minipage}
@@ -110,7 +117,7 @@
     %{\large\imprimirlocal}
     %\par
     %{\large\imprimirdata}
-    \imprimirlocal, 24 de novembro de 2012.
+    \imprimirlocal, \imprimirDataDefesa.
     \vspace*{1cm}
   \end{center}
   }
