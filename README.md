@@ -4,7 +4,8 @@ Automatically exported from code.google.com/p/ufpr-abntex
 O modelo criado:
  
  00-dados.tex 
-   Possui os dados necessários para identificar o autor, instituição, trabalho, preambulo, resumo, epígrafe....
+   Possui os dados necessários para identificar o autor, instituição, trabalho, preambulo, resumo, epígrafe
+   lista de siglas e de simbolos,....
  
  00-pacotes.tex 	
    Possui os pacotes customizados para o funcionamento de acordo com as normas da UFPR
