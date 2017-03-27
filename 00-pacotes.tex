@@ -6,11 +6,14 @@
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}				% Controle das cores
+\usepackage{color}			% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
+\usepackage{ifthen}			% para montar condicionais
+\usepackage[brazil]{babel}		% para utilizar termos em portugues
 % ---
-		
+% \usepackage{tocloft}		
+\newcommand{\tocfont}{\normalsize}	% define tamanho de fonte para sumario como normal	
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
 % ---
@@ -64,13 +67,13 @@
      	%pagebackref=true,
 		pdftitle={\@title}, 
 		pdfauthor={\@author},
-    	pdfsubject={\imprimirpreambulo},
-	    pdfcreator={LaTeX with abnTeX2},
+    		pdfsubject={\imprimirpreambulo},
+		pdfcreator={LaTeX with abnTeX2},
 		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
 		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=blue,          	% color of internal links
-    	citecolor=blue,        		% color of links to bibliography
-    	filecolor=magenta,      		% color of file links
+    		linkcolor=blue,          	% color of internal links
+    		citecolor=blue,        		% color of links to bibliography
+    		filecolor=magenta,     		% color of file links
 		urlcolor=blue,
 		bookmarksdepth=4
 }
@@ -84,6 +87,31 @@
 \makeindex
 % ---
 
+\usepackage{cancel} 		% permite representar o cancelamento de termos em texto ou equacoes
+\usepackage{xcolor} 		% cores extendidas
+\usepackage{smartdiagram}       % gera diagramas a partir de listas
+
+\usepackage{float} 		% Para a figura ficar na posição correta
+\usepackage{textcomp} 		% supporte para fontes da Text Companion 
+\usepackage{longtable}		% uso de longtable
+\usepackage{amsmath}		% simbolos matematicos
+
+\usepackage{caption} 		% configura legenda 
+				%\renewcommand\caption[1]{%
+\captionsetup{font=small}	% tamanho da fonte 10pt
+ 				% \caption{#1}}
+				%\captionsetup{width=0.8\textwidth}
+
+\usepackage{lscape}
+\usepackage{multicol}
+\usepackage{multirow}
+
+
+\usepackage{trivfloat}
+%\trivfloat{quadro}
+%\floatstyle{plaintop}
+%\restylefloat{quadro}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Criação do indice de quadros
  \usepackage{newfloat}
@@ -93,10 +121,88 @@
 
 \DeclareFloatingEnvironment[
 fileext=loq,
-listname={Lista de Quadros},
+listname={\textbf{LISTA DE QUADROS}},
 name=Quadro,
 %placement=p,
 within= none, % numeracao continua
 %within=section, % numeracao reinicia em cada seccao
 %chapterlistsgaps=off
 ]{quadro}
+
+% Novo list of (listings) para QUADROS
+
+%\renewcommand{\quadroname}{QUADRO}
+%\newcommand{\listofquadrosname}{LISTA DE QUADROS}
+
+%\newfloat[chapter]{quadro}{loq}{\quadroname}
+%\newlistof{listofquadros}{loq}{\listofquadrosname}
+\newlistentry{quadro}{loq}{0}
+
+% configurações para atender às regras da ABNT
+%\counterwithout{quadro}{chapter}
+
+% Customize ‘List of Diagrams’
+\PrepareListOf{quadro}{%
+\renewcommand{\cftquadropresnum}{\normalsize{QUADRO}~}
+\setlength{\cftquadronumwidth}{3.2cm}
+%\renewcommand{\cftquadroname}{\quadroname\space} 
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+}
+
+\makeatletter
+%% we define a helper macro for adjusting lists of new floats to
+%% accept a * behind them for not being shown in the TOC, like
+%% the other list printing commands in memoir
+\newcommand{\AdjustForMemoir}[1]{%
+  \csletcs{kept@listof#1}{listof#1}%
+  \csdef{listof#1}{%
+    \@ifstar
+     {\csappto{newfloat@listof#1@hook}{\append@star}%
+      \csuse{kept@listof#1}}%
+     {\csuse{kept@listof#1}}%
+  }
+}
+\def\append@star#1{#1*}
+\makeatother
+
+\AdjustForMemoir{quadro} % prepare `\listofdirfigures` so it accepts a *
+
+\makeatletter
+\let\oldcontentsline\contentsline
+\def\contentsline#1#2{%
+    \expandafter\ifx\csname l@#1\endcsname\l@section
+	\expandafter\@firstoftwo
+	\else
+	\expandafter\@secondoftwo
+	\fi
+	{%
+		\oldcontentsline{#1}{\MakeTextUppercase{#2}}%
+	}{%
+	\normalsize %ajusta tamanho da fonte na lista
+	\oldcontentsline{#1}{#2}%
+}%
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% citacao de acordo com a norma da UFPR 2015-agosto
+\renewenvironment{quotation}
+    {\vspace{.5\baselineskip}
+	\list{}{\listparindent 0em%
+		\SingleSpacing
+		\itemindent    
+		\listparindent
+		\rightmargin= 0mm
+        \leftmargin= 45mm
+        \parsep=0mm        }%\z@ \@plus\p@}%
+        \item\relax}
+        {
+        \vspace{.5\baselineskip}
+        \endlist
+        }
+        
+\newenvironment{citacaodireta}
+{\begin{quotation}\footnotesize}
+{\end{quotation}}        
+
+\newcommand{\sugest}[1]{\textcolor{red!40}{#1}}
