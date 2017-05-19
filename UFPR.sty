@@ -48,6 +48,11 @@
 \renewcommand{\familydefault}{\sfdefault}
 
 %----------------------------------------------------------------------------
+% Criacao de listas de simbolos e abreviaturas
+%----------------------------------------------------------------------------
+\usepackage{datatool}
+
+%----------------------------------------------------------------------------
 % Espaçamentos entre linhas e parágrafos 
 %----------------------------------------------------------------------------
 % Retira espaço extra obsoleto entre as frases.
@@ -359,3 +364,51 @@
 %\renewcommand{\cfttabaftersnum}{ -- }
 %\renewcommand{\cftquadroaftersnum}{ -- }
 
+% +++++ SIGLAS +++++
+
+\makeatletter
+
+	\newcommand\criarsigla[2]{%
+		\write\@auxout{\noexpand\@writefile{sig}{\noexpand\sortitem{#1} {#2}}}}
+
+	\newcommand{\sortitem}[2]{%
+		\DTLnewrow{list}%
+		\DTLnewdbentry{list}{label}{#1}%
+		\DTLnewdbentry{list}{description}{#2}%
+	}
+
+	\newenvironment{sortedList}{%
+		\DTLifdbexists{list}{\DTLcleardb{list}}{\DTLnewdb{list}}%
+	}
+	{
+		\DTLsort{label}{list}%
+		\begin{description}%
+			
+\DTLforeach*{list}{\theLabel=label,\theDesc=description}{\item[\theLabel] \theDesc}		
+	
+		\end{description}
+	}
+
+	\newcommand\imprimirlistadesiglas{
+	
+		\begin{center}
+			{\ABNTEXchapterfont{LISTA DE ABREVIATURAS E DE 	SIGLAS}}
+			\vspace*{1.1cm}
+			\begin{sortedList}
+				\fontfamily{cmss}\@starttoc{sig}
+			\end{sortedList}
+		\end{center}
+	}
+
+\makeatother
+
+% +++++ SIMBOLOS +++++
+
+\makeatletter
+	\newcommand\criarsimbolo[2]{%
+		\write\@auxout{\noexpand\@writefile{sbl}{\noexpand\item[#1] #2}}}
+	\newcommand\imprimirlistadesimbolos{%
+		\begin{simbolos}
+			  \@starttoc{sbl}
+		\end{simbolos}}
+\makeatother
