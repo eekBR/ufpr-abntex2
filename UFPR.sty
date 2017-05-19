@@ -72,52 +72,49 @@
 %\ProvidesPackage{abntex2glossaries}[2014/09/01 Criacao desta do pacote glossaries para o abnTeX2]
 %https://code.google.com/p/abntex2/issues/detail?id=104#c13
 % --- Controla a geração de listas de siglas, símbolos e glossário
-\RequirePackage[style=long]{glossaries}
+%\RequirePackage[style=long]{glossaries}% comentado dia 19 mai 2017
 %----------------------------------------------------------------------------
 
-%Definição das listas de glossários e parâmertos para compilação.
+%Definição das listas de glossários e parâmertos para compilação.% comentado dia 19 mai 2017
 %-------------------------------------------------------
-\newglossary{verbetes}{verbetes}{vrl}{verbetes}
-\newglossary{siglas}{siglas}{sgl}{siglas}
-\newglossary{simbolos}{simbolos}{sbl}{simbolos}
+%\newglossary{verbetes}{verbetes}{vrl}{verbetes}
+%\newglossary{siglas}{siglas}{sgl}{siglas}
+%\newglossary{simbolos}{simbolos}{sbl}{simbolos}
 
 
 %Definição dos comandos para exibição das listas individuais.
 %-----------------------------------------------------------
-\newcommand{\listarsiglas}{\printglossary[type=siglas, title=\listadesiglasname, nonumberlist=true]}
-\newcommand{\listarsimbolos}{\printglossary[type=simbolos, title=\listadesimbolosname, nonumberlist=true]}
-\newcommand{\listarverbetes}{\printglossary[type=verbetes]}
+%\newcommand{\listarsiglas}{\printglossary[type=siglas, title=\listadesiglasname, nonumberlist=true]}
+%\newcommand{\listarsimbolos}{\printglossary[type=simbolos, title=\listadesimbolosname, nonumberlist=true]}
+%\newcommand{\listarverbetes}{\printglossary[type=verbetes]}
 
 %Definição dos Comandos para inclusão no texto das siglas.
 
-\newcommand{\verbete}[3]{
-	\newglossaryentry{glossary}{name=#1, description={#2}, plural={#3}, type=verbetes}
-	\gls{#1}
-}
+%\newcommand{\verbete}[3]{
+%	\newglossaryentry{glossary}{name=#1, description={#2}, plural={#3}, type=verbetes}
+%	\gls{#1}
+%}
 
-\newcommand{\sigla}[2]{
-	\newacronym[type=siglas]{#1}{#1}{#2}
-	\gls{#1}
-}
+%\newcommand{\sigla}[2]{
+%	\newacronym[type=siglas]{#1}{#1}{#2}
+%	\gls{#1}
+%}
 
-\newcommand{\simbolo}[3]{
-	\newglossaryentry{#1}{type=simbolos, name=#3, text=#3, description=#2,symbol=#3, sort=def}
-	\gls{#1}
-}
+%\newcommand{\simbolo}[3]{
+%	\newglossaryentry{#1}{type=simbolos, name=#3, text=#3, description=#2,symbol=#3, sort=def}
+%	\gls{#1}
+%}
 
 
-%-----------------------------------------------------------------------------
-%-----------------------------------------------------------------------------
-%-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
 % Lista de abreviaturas e siglas
-\renewenvironment{siglas}{%
-  \pretextualchapter{\listadesiglasname}
-  \begin{symbols}
-}{%
-  \end{symbols}
-  %\cleardoublepage  %foi comentado para que não pule uma página
-}
+%\renewenvironment{siglas}{%
+%  \pretextualchapter{\listadesiglasname}
+%  \begin{symbols}
+%}{%
+%  \end{symbols}
+%  %\cleardoublepage  %foi comentado para que não pule uma página
+%}
 % ---
 
 %----------------------------------------------------------------------------- 
