@@ -1,231 +1,156 @@
-% ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
 % ----------------------------------------------------------
- %\pretextual
-
-% ---
 % Capa
-% ---
-\imprimircapa
-% ---
+% ----------------------------------------------------------
+ \ifthenelse{\equal{\terCapa}{Sim}}{
+\imprimircapa}{}
 
-% ---
 % Folha de rosto
-% (o * indica que haverá a ficha bibliográfica)
-% ---
+% ----------------------------------------------------------
 \imprimirfolhaderosto*
-% ---
 
-% ---
 % Inserir a ficha bibliografica
-% ---
+% ----------------------------------------------------------
+ \ifthenelse{\equal{\terFichaCatalografica}{Sim}}
+ {\insereFichaCatalografica{}\cleardoublepage}
+ {}
 
-% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
-% catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
-% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
-% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
-% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
-% o conteúdo de implementação deste arquivo pelo comando abaixo:
-%
-% \begin{fichacatalografica}
-%     \includepdf{fig_ficha_catalografica.pdf}
-% \end{fichacatalografica}
-\begin{fichacatalografica}%\color{blue}
-	\vspace*{\fill}					% Posição vertical
-	\hrule							% Linha horizontal
-	\begin{center}					% Minipage Centralizado
-	\begin{minipage}[c]{12.5cm}		% Largura
-	\FichaCatalografica
-	
-	\end{minipage}
-	\end{center}
-	\hrule
-\end{fichacatalografica}
-% ---
-
-% ---
 % Inserir errata
-% ---
-\begin{errata}%\color{blue}
-Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
+% ----------------------------------------------------------
+ \ifthenelse{\equal{\terErrata}{Sim}}
+ {\begin{errata}%\color{blue}
+   \imprimirerrata
+  \end{errata}}
+ {}
 
-\vspace{\onelineskip}
-
-FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
-reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
-rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
-cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
-Zootecnia, Universidade de São Paulo, São Paulo, 2011.
-
-\begin{table}[htb]
-\center
-\footnotesize
-\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
-  \hline
-   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
-    \hline
-    1 & 10 & auto-conclavo & autoconclavo\\
-   \hline
-\end{tabular}
-\end{table}
-
-\end{errata}
-% ---
-
-% ---
 % Inserir folha de aprovação
-% ---
+% ----------------------------------------------------------
+\ifthenelse{\equal{\terTermoAprovacao}{}}{
+\insereAprovacao}{}
 
-% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
-% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
-% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
-% imagem da página assinada pela banca com o comando abaixo:
-%
-% \includepdf{folhadeaprovacao_final.pdf}
-%
-\begin{folhadeaprovacao}%\color{blue}
-
-  \begin{center}
-    {\ABNTEXchapterfont
-    {\bfseries\folhadeaprovacaoname}\par\phantom{}\par
-    %\large
-    \MakeUppercase\imprimirautor}
-
-    \vspace*{\fill}\vspace*{\fill}
-    \begin{center}
-      \ABNTEXchapterfont
-      %\bfseries\Large
-      \MakeUppercase\imprimirtitulo
-    \end{center}
-    \vspace*{\fill}
-    \begin{minipage}{\textwidth}
-    \hspace{.25\textwidth}
-    %\begin{minipage}{.5\textwidth}
-        \imprimirpreambulo, pela seguinte banca examinadora:
-    %\end{minipage}%
-    \end{minipage}
-
-
-    \vspace*{\fill}
-   \end{center}
-       \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
-   \AssinaAprovacao
-  
-\end{folhadeaprovacao}
-% ---
-
-% ---
 % Dedicatória
-% ---
+% ----------------------------------------------------------
+\ifthenelse{\equal{\terDedicatoria}{Sim}}{
 \begin{dedicatoria}
    \vspace*{\fill}
    \centering
    \noindent
    \DedicatoriaTexto
-    \vspace*{\fill}
+   \vspace*{\fill}
 \end{dedicatoria}
-% ---
+}{}
 
-% ---
 % Agradecimentos
-% ---
-\begin{agradecimentos}
-\AgradecimentosTexto
-\end{agradecimentos}
-% ---
+% ----------------------------------------------------------
 
-% ---
+ \ifthenelse{\equal{\terAgradecimentos}{Sim}}
+ {\begin{agradecimentos}
+    \AgradecimentosTexto
+  \end{agradecimentos}
+  }{}
 % Epígrafe
-% ---
+% ----------------------------------------------------------
+
+\ifthenelse{\equal{\terEpigrafe}{Sim}}{
 \begin{epigrafe}
     \vspace*{\fill}
 	\begin{flushright}
         \EpigrafeTexto
 	\end{flushright}
 \end{epigrafe}
-% ---
+}{}
 
-% ---
 % RESUMOS
-% ---
-
+% ----------------------------------------------------------
 % resumo em português
-\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+%\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+ \ifthenelse{\equal{\terResumos}{Sim}}{
 \begin{resumo}
     \ResumoTexto
-    \vspace{\onelineskip}
+    
+    %\vspace{\onelineskip}
     \noindent 
     \textbf{Palavras-chaves}: \PalavraschaveTexto
 \end{resumo}
 
-% resumo em inglês
+%% resumo em inglês
 \begin{resumo}[ABSTRACT]
  \begin{otherlanguage*}{english}
    \AbstractTexto
-   \vspace{\onelineskip}
- 
+   
+   %\vspace{\onelineskip}
    \noindent 
    \textbf{Key-words}: \KeywordsTexto
  \end{otherlanguage*}
 \end{resumo}
 
-% resumo em francês 
-% \begin{resumo}[RESUME]%Résumé
-%  \begin{otherlanguage*}{french}
-%     Il s'agit d'un résumé en français.
-%  
-%    \textbf{Mots-clés}: latex. abntex. publication de textes.
-%  \end{otherlanguage*}
-% \end{resumo}
-% 
-% % resumo em espanhol
-% \begin{resumo}[RESUMEN]
-%  \begin{otherlanguage*}{spanish}
-%    Este es el resumen en español.
-%   
-%    \textbf{Palabras clave}: latex. abntex. publicación de textos.
-%  \end{otherlanguage*}
-% \end{resumo}
-% ---
 
-% ---
+% resumo em francês 
+\ifthenelse{\equal{\Resume}{}}
+{}
+{
+ \begin{resumo}[RESUME]%Résumé
+  \begin{otherlanguage*}{french}
+     \Resume
+     
+     %\vspace{\onelineskip}
+     \noindent      
+     \textbf{Mots clés}: \Motscles
+  \end{otherlanguage*}
+ \end{resumo}
+} 
+
+% resumo em espanhol
+\ifthenelse{\equal{\Resume}{}}{}
+{ \begin{resumo}[RESUMEN]
+  \begin{otherlanguage*}{spanish}
+    \Resumen 
+   
+   %\vspace{\onelineskip}
+   \noindent    
+    \textbf{Palabras clave}: \Palabrasclave
+  \end{otherlanguage*}
+ \end{resumo}
+}
+}{}
+
 % inserir lista de ilustrações
-% ---
-\pdfbookmark[0]{\listfigurename}{lof}
+% ----------------------------------------------------------
+\ifthenelse{\equal{\terListaFiguras}{Sim}}{
+%\pdfbookmark[0]{\listfigurename}{lof}
 \listoffigures*
 \cleardoublepage
-% ---
+}{}
 
-% ---
+
 % inserir lista de tabelas
-% ---
+% ----------------------------------------------------------
+\ifthenelse{\equal{\terListaTabelas}{Sim}}{
 %\pdfbookmark[0]{\listtablename}{lot}
 \listoftables*
-%\cleardoublepage
-% ---
+\cleardoublepage
+}{}
 
-% ---
-% inserir lista de abreviaturas e siglas
-% ---
-%\listarsiglas
-\imprimirlistadesiglas
-%\lsiglas  % listar siglas do arquivo 00-dados.tex
-%\cleardoublepage
-% ---
 
-% ---
+% inserir lista de abreviaturas e siglas 
 % inserir lista de símbolos
-% ---
-\imprimirlistadesimbolos
-%\listarsimbolos
-% \lsimbolos % listar simoblos do arquivo 00-dados.tex
-%\cleardoublepage
-% ---
+% ----------------------------------------------------------
 
-% ---
+ \ifthenelse{\equal{\terSiglasAbrev}{Sim}}{
+    \imprimirlistadesiglas
+    \cleardoublepage
+    \imprimirlistadesimbolos
+    \cleardoublepage
+ }{}
+
 % inserir o sumario
-% ---
+% ----------------------------------------------------------
+\ifthenelse{\equal{\terSumario}{Sim}}{
 %\pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
-\cleardoublepage
-% ---
+%\cleardoublepage
+}{}
+ 
+
+ 
+ 

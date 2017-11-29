@@ -35,31 +35,29 @@
 %
 %    referencias.bib
 %
-\ProvidesPackage{UFPR}[2015/12/05 Criacao desta customizacao do abnTeX2 para UFPR]
+\ProvidesPackage{UFPR}[2017/12/05 Criacao desta customizacao do abnTeX2 para UFPR]
 
-%----------------------------------------------------------------------------
+
 % Hifenizacao e caracteres especiais portugues-brasil por padrao
 %----------------------------------------------------------------------------
 \RequirePackage[brazil]{babel}
-%----------------------------------------------------------------------------
+
 % Fontes em Helvet - Arial
 %----------------------------------------------------------------------------
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
-%----------------------------------------------------------------------------
 % Criacao de listas de simbolos e abreviaturas
 %----------------------------------------------------------------------------
 \usepackage{datatool}
 
-%----------------------------------------------------------------------------
 % Espaçamentos entre linhas e parágrafos 
 %----------------------------------------------------------------------------
 % Retira espaço extra obsoleto entre as frases.
 \frenchspacing 
 
 % O tamanho do parágrafo é dado por:
-\setlength{\parindent}{1.5cm}
+\setlength{\parindent}{15mm}
 
 % Controle do espaçamento entre um parágrafo e outro:
 \setlength{\parskip}{2 mm}  % tente também \onelineskip
@@ -68,61 +66,6 @@
 \setlength{\abovecaptionskip}{0 mm}
 \setlength{\belowcaptionskip}{1 mm}
 
-
-
-%----------------------------------------------------------------------------
-%-Código de geração de lista de siglas, símbolos e verbetes copiado de
-%%https://code.google.com/p/abntex2/issues/detail?id=104#c13
-%----------------------------------------------------------------------------
-%\ProvidesPackage{abntex2glossaries}[2014/09/01 Criacao desta do pacote glossaries para o abnTeX2]
-%https://code.google.com/p/abntex2/issues/detail?id=104#c13
-% --- Controla a geração de listas de siglas, símbolos e glossário
-%\RequirePackage[style=long]{glossaries}% comentado dia 19 mai 2017
-%----------------------------------------------------------------------------
-
-%Definição das listas de glossários e parâmertos para compilação.% comentado dia 19 mai 2017
-%-------------------------------------------------------
-%\newglossary{verbetes}{verbetes}{vrl}{verbetes}
-%\newglossary{siglas}{siglas}{sgl}{siglas}
-%\newglossary{simbolos}{simbolos}{sbl}{simbolos}
-
-
-%Definição dos comandos para exibição das listas individuais.
-%-----------------------------------------------------------
-%\newcommand{\listarsiglas}{\printglossary[type=siglas, title=\listadesiglasname, nonumberlist=true]}
-%\newcommand{\listarsimbolos}{\printglossary[type=simbolos, title=\listadesimbolosname, nonumberlist=true]}
-%\newcommand{\listarverbetes}{\printglossary[type=verbetes]}
-
-%Definição dos Comandos para inclusão no texto das siglas.
-
-%\newcommand{\verbete}[3]{
-%	\newglossaryentry{glossary}{name=#1, description={#2}, plural={#3}, type=verbetes}
-%	\gls{#1}
-%}
-
-%\newcommand{\sigla}[2]{
-%	\newacronym[type=siglas]{#1}{#1}{#2}
-%	\gls{#1}
-%}
-
-%\newcommand{\simbolo}[3]{
-%	\newglossaryentry{#1}{type=simbolos, name=#3, text=#3, description=#2,symbol=#3, sort=def}
-%	\gls{#1}
-%}
-
-
-%-----------------------------------------------------------------------------
-% Lista de abreviaturas e siglas
-%\renewenvironment{siglas}{%
-%  \pretextualchapter{\listadesiglasname}
-%  \begin{symbols}
-%}{%
-%  \end{symbols}
-%  %\cleardoublepage  %foi comentado para que não pule uma página
-%}
-% ---
-
-%----------------------------------------------------------------------------- 
 % Fontes padroes de part, chapter, section, subsection e subsubsection
 %----------------------------------------------------------------------------- 
 \renewcommand{\ABNTEXchapterfont}{\normalfont}
@@ -162,6 +105,10 @@
 \renewcommand{\bibname}{\uppercase{REFER\^ENCIAS}}
 \renewcommand{\indexname}{\'INDICE}
 
+% Adequando o uppercase titulo dos elementos nas suas respectivas LISTAS
+\renewcommand{\cftfigurename}{FIGURA\enspace}   
+\renewcommand{\cfttablename}{TABELA\enspace}
+
 
 % Comandos de dados - orientadora
 \providecommand{\imprimirorientadoraRotulo}{}
@@ -190,18 +137,24 @@
 \newcommand{\scoorientadora}[2][\scoorientadoraname]%
   {\renewcommand{\imprimirscoorientadoraRotulo}{#1}%
    \renewcommand{\imprimirscoorientadora}{#2}}
-   
-% Adequando o uppercase titulo dos elementos nas suas respectivas LISTAS
-\renewcommand{\cftfigurename}{FIGURA\enspace}   
-\renewcommand{\cfttablename}{TABELA\enspace}
 
-%-----------------------------------------------------------------------------   
+
 % Impressão da Capa
 %----------------------------------------------------------------------------- 
 \renewcommand{\imprimircapa}{%
   \begin{capa}%
     \center
-    \ABNTEXchapterfont \MakeUppercase\imprimirinstituicao
+    \ABNTEXchapterfont \MakeUppercase\imprimirinstituicao \vspace{-2mm}
+    
+    \ifthenelse{\equal \ImprimirSetor{}}{}{
+    \ABNTEXchapterfont \MakeUppercase\ImprimirSetor}
+        \vspace{-2mm}
+    
+    \ifthenelse{\equal \ImprimirProgramaPos{}}{}{
+    \ABNTEXchapterfont \MakeUppercase\ImprimirProgramaPos}
+    
+    \ifthenelse{\equal \ImprimirCurso{}}{}{
+    \ABNTEXchapterfont \MakeUppercase\ImprimirCurso}
     
     \vspace{40mm}
     
@@ -217,13 +170,10 @@
      %\large
      \imprimirdata
     
-    \vspace*{1cm}
+    \vspace*{10mm}
   \end{capa}
 }
-%----------------------------------------------------------------------------- 
 
-
-%----------------------------------------------------------------------------- 
 % Folha de rosto
 %-----------------------------------------------------------------------------
 %   usar \imprimirfolhaderosto* casodeseje imprimir algo no verso da
@@ -234,7 +184,7 @@
 \renewenvironment{folhaderosto}[1][\folhaderostoname]{\clearpage\PRIVATEbookmarkthis{#1}}{\cleardoublepage}
 \renewenvironment{folhaderosto*}[1][\folhaderostoname]{\clearpage\PRIVATEbookmarkthis{#1}}{\newpage}%
 
-%----------------------------------------------------------------------------- 
+
 % Conteudo padrao da Folha de Rosto
 %----------------------------------------------------------------------------- 
 \makeatletter
@@ -259,14 +209,15 @@
       \hspace{.45\textwidth}
       \begin{minipage}{.5\textwidth}
       	\SingleSpacing\small
-         \imprimirpreambulo
+         \imprimirpreambulo.\vspace*{2mm}
          
          \abntex@ifnotempty{\imprimirorientador}
-         {\imprimirorientadorRotulo~\imprimirorientador}
-         \abntex@ifnotempty{\imprimirorientadora}
+            {\imprimirorientadorRotulo~\imprimirorientador}
+         \ifthenelse{\equal{\imprimirorientador}{}}
 			{\imprimirorientadoraRotulo~\imprimirorientadora}
-			\abntex@ifnotempty{\imprimircoorientador}
-			{\par\imprimircoorientadorRotulo~\imprimircoorientador}%
+			{}
+		 \abntex@ifnotempty{\imprimircoorientador}
+		    {\par\imprimircoorientadorRotulo~\imprimircoorientador}%
 			{\abntex@ifnotempty{\imprimircoorientadora}
 				{\par\imprimircoorientadoraRotulo~\imprimircoorientadora}%
                         }
@@ -278,12 +229,7 @@
 			{\par\imprimirscoorientadoraRotulo~\imprimirscoorientadora}
 			}%
 			%
-%
-%          \imprimirorientadorRotulo~\imprimirorientador\par
-%             \abntex@ifnotempty{\imprimircoorientador}
-% 				\imprimircoorientadorRotulo~\imprimircoorientador
        \end{minipage}%
-  
        \vspace*{\fill}
     }%
 
@@ -299,8 +245,67 @@
 }
 \makeatother
 
-
+% FICHA CATALOGRÁFICA
 %----------------------------------------------------------------------------- 
+
+% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
+% catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
+% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
+% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
+% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
+% o conteúdo de implementação deste arquivo pelo comando abaixo:
+
+\newcommand{\insereFichaCatalografica}{ 
+ \begin{fichacatalografica}%\color{blue}
+
+ \IfFileExists{metadados/FichaC.pdf}
+    {\includepdf[pages=-]{metadados/FichaC}}
+    {
+	\vspace*{\fill}					% Posição vertical
+	\hrule							% Linha horizontal
+	\begin{center}					% Minipage Centralizado
+	\begin{minipage}[c]{12.5cm}		% Largura
+
+   \imprimirautor
+	
+	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+	\imprimirlocal, \imprimirdata-
+	
+	\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
+	
+	\hspace{0.5cm} 
+	\ifthenelse{\equal{\imprimirorientador}{}}
+			{\imprimirorientadoraRotulo~\imprimirorientadora}
+			{\imprimirorientadorRotulo~\imprimirorientador}
+	\\
+	
+	\hspace{5mm}
+	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+	\imprimirdata.}\\
+	
+	  \hspace{5mm}
+	   \begin{minipage}{.80\textwidth}
+	    	1. \PalavraschaveTexto
+
+	    	I. 	\ifthenelse{\equal{\imprimirorientador}{}}
+			{\imprimirorientadoraRotulo~\imprimirorientadora}
+			{\imprimirorientadorRotulo~\imprimirorientador}.
+			
+		   II. \imprimirinstituicao
+		   
+		  III. \imprimirCurso
+		  
+		   IV. \imprimirtitulo\\ 
+		   
+	    \hspace{70mm} CDU \imprimircdu \\
+	  \end{minipage}
+	\end{minipage}
+	\end{center}
+	\hrule
+ }
+ \end{fichacatalografica}
+}
+
 % CONFIGURACAO DO SUMARIO   
 %----------------------------------------------------------------------------- 
 % Modifica o espaçamento no sumário 
@@ -312,9 +317,10 @@
 \setlength{\cftbeforechapterskip}{\onelineskip} 
 
 % Alteração da indentação dos itens do sumário
-\cftsetindents{section}{0pt}{20pt}
-\cftsetindents{subsection}{0pt}{30pt}
-\cftsetindents{subsubsection}{0pt}{40pt}
+\cftsetindents{chapter}{0pt}{42pt}
+\cftsetindents{section}{0pt}{42pt}
+\cftsetindents{subsection}{0pt}{42pt}
+\cftsetindents{subsubsection}{0pt}{42pt}
 
 % Modifica a formatacao dos textos 
  
@@ -327,45 +333,8 @@
 } 
 \makeatother 
 
-
+% Siglas
 %----------------------------------------------------------------------------- 
-% CONFIGURACAO DO ESTILO DE PÁGINA TEXTUAL 
-%-----------------------------------------------------------------------------
-%%criar um novo estilo de cabeçalhos e rodapés
-%\makepagestyle{textualUFPR}
-%  \pagenumbering{arabic} % volta à numeração arábica
-%  %%cabeçalhos
-%  \makeevenhead{textualUFPR} %%pagina par
-%     {\thepage}%topo par à esquerda}
-%     {}%centro \thepage}
-%     {}%direita}
-%  \makeoddhead{textualUFPR} %%pagina ímpar ou com oneside
-%     {}%topo ímpar/oneside à esquerda}
-%     {}%centro\thepage}
-%     {\thepage}%direita}
-%  %\makeheadrule{textualUFPR}{\textwidth}{\normalrulethickness} %linha
-%  %% rodapé
-%  \makeevenfoot{textualUFPR}
-%     {}%rodapé par à esquerda} %%pagina par
-%     {}%centro \thepage}
-%     {}%direita} 
-%  \makeoddfoot{textualUFPR} %%pagina ímpar ou com oneside
-%     {}%rodapé ímpar/onside à esquerda}
-%     {}%centro \thepage}
-%     {}%direita}
-\pagestyle{simple}     
-% Adequando o uppercase titulo dos elementos nas suas respectivas legendas
-%\renewcommand{\tablename}{TABELA }
-%\renewcommand{\figurename}{FIGURA }
-%\renewcommand{\quadroname}{QUADRO }
-
-% Adequando o hifen entre o nome e o título dos elementos nas suas respectivas listas
-%\renewcommand{\cftfigaftersnum}{ -- }
-%\renewcommand{\cfttabaftersnum}{ -- }
-%\renewcommand{\cftquadroaftersnum}{ -- }
-
-% +++++ SIGLAS +++++
-
 \makeatletter
 
 	\newcommand\criarsigla[2]{%
@@ -402,7 +371,8 @@
 
 \makeatother
 
-% +++++ SIMBOLOS +++++
+% Simbolos
+%----------------------------------------------------------------------------- 
 
 \makeatletter
 	\newcommand\criarsimbolo[2]{%
@@ -412,3 +382,199 @@
 			  \@starttoc{sbl}
 		\end{simbolos}}
 \makeatother
+
+% Folha de Aprovação
+%----------------------------------------------------------------------------- 
+\newcommand{\insereAprovacao}{
+\begin{folhadeaprovacao}%\color{blue}
+
+  \begin{center}
+    {\ABNTEXchapterfont
+    {\bfseries\folhadeaprovacaoname}\par\phantom{}\par
+    %\large
+    \MakeUppercase\imprimirautor}
+
+    \vspace*{\fill}\vspace*{\fill}
+    \begin{center}
+      \ABNTEXchapterfont
+      %\bfseries\Large
+      \MakeUppercase\imprimirtitulo
+    \end{center}
+    \vspace*{\fill}
+    \begin{minipage}{\textwidth}
+    \hspace{.25\textwidth}
+    %\begin{minipage}{.5\textwidth}
+        \imprimirpreambulo, pela seguinte banca examinadora:
+    %\end{minipage}%
+    \end{minipage}
+
+
+    \vspace*{\fill}
+   \end{center}
+       \assinatura{\textbf{
+       \ifthenelse{\equal{\imprimirorientador}{}}
+			{\imprimirorientadora \\ Orientadora}
+			{\imprimirorientador \\ Orientador}} 
+       }
+   \AssinaAprovacao
+  
+\end{folhadeaprovacao}
+}
+
+
+
+%
+
+
+\newcommand{\tocfont}{\normalsize}	% define tamanho de fonte para sumario como normal	
+
+
+% Configurações de aparência do PDF final
+% ----------------------------------------------------------
+
+
+% informações do PDF
+% ----------------------------------------------------------
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+		pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,     		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+
+
+
+%\trivfloat{quadro}
+%\floatstyle{plaintop}
+%\restylefloat{quadro}
+
+
+% citacao de acordo com a norma da UFPR 2015-agosto
+% ----------------------------------------------------------
+\renewenvironment{quotation}
+    {\vspace{.5\baselineskip}
+	\list{}{
+	    \listparindent 0em%
+		\SingleSpacing
+		\itemindent    
+		\listparindent
+		\rightmargin= 0mm
+        \leftmargin = 45mm
+        \parsep     = 0mm}%\z@ \@plus\p@}%
+        \item\relax}
+        {
+        \vspace{.5\baselineskip}
+        \endlist
+        }
+        
+\newenvironment{citacaodireta}
+{\begin{quotation}\footnotesize}
+{\end{quotation}}        
+
+% para comentarios e sugestões
+% ----------------------------------------------------------
+\newcommand{\sugest}[1]{\textcolor{red!40}{#1}}
+
+% simplificação para colocar figuras
+% ----------------------------------------------------------
+\newcommand{\figura}[7]{
+ \begin{center}\small
+    \begin{figure}[!ht]
+    \centering
+        \caption{#1}
+        \includegraphics[width=#2\textwidth]{#3}
+        \label{fig:#5}
+    
+    %ajustado p/ a largura da imagem
+    \begin{minipage}{#2\textwidth} 
+        \vspace{2mm}
+        %\begin{flushleft}
+            FONTE:~#4
+            
+            \ifthenelse{\equal{#6}{}}{}
+            {\hangindent=14mm NOTA: #6 }
+            
+            \ifthenelse{\equal{#7}{}}{}
+            {\hangindent=14mm LEGENDA: #7 }
+        %\end{flushleft}
+    \end{minipage}
+    \end{figure}
+ \end{center}
+}
+
+
+% simplificação para colocar figuras
+% ----------------------------------------------------------
+\newcommand{\figurac}[9]{
+ \begin{center}\small
+    \begin{figure}[!ht]
+    \centering
+        \caption{#1}
+        \includegraphics[width=#2\textwidth, trim={#7mm #8 #7 #8},clip]{#3}
+        \label{fig:#5}
+        
+    %ajustado p/ a largura da imagem
+    \begin{minipage}{#2\textwidth} 
+        \vspace{2mm}
+        %\begin{flushleft}
+            FONTE:~#4
+            
+            \ifthenelse{\equal{#6}{}}{}
+            {\hangindent=14mm NOTA: #6 }
+            
+            \ifthenelse{\equal{#7}{}}{}
+            {\hangindent=14mm LEGENDA: #9 }
+        %\end{flushleft}
+    \end{minipage}
+    \end{figure}
+ \end{center}
+}
+
+% simplificação para colocar figuras
+% ----------------------------------------------------------
+\newcommand{\tabela}[6]
+{\small
+ \newsavebox{\mybox}
+  \sbox{\mybox}{#2}
+  \newlength{\myboxlen}
+  \settowidth{\myboxlen}{\usebox{\mybox}}
+  \noindent
+  %\rule{\myboxlen}{1pt}\\
+  \begin{table}[!ht]
+ \centering
+ \par\caption{#1}
+ 
+  \par  #2
+ 
+ \label{tab:#3}
+ 
+     \begin{minipage}{\myboxlen} 
+        \vspace{2mm}
+        %\begin{flushleft}
+            FONTE:~ #4
+            
+            \ifthenelse{\equal{#5}{}}{}
+            {\hangindent=13mm NOTA: #5 }
+            
+            \ifthenelse{\equal{#6}{}}{}
+            {\hangindent=13mm LEGENDA: #6}
+        %\end{flushleft}
+    \end{minipage}
+\end{table}
+  % \centering
+  % \usebox{\mybox}
+  % box size: \the\myboxlen.
+}
+
+
+

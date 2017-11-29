@@ -1,121 +1,69 @@
-% ---
 % Pacotes básicos 
-% ---
-\usepackage{lmodern}			% Usa a fonte Latin Modern			
+% ----------------------------------------------------------
+%\usepackage{lmodern}			% Usa a fonte Latin Modern			
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}			% Controle das cores
+\usepackage{color}		    	% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
-\usepackage{ifthen}			% para montar condicionais
+\usepackage{ifthen}		    	% para montar condicionais
 \usepackage[brazil]{babel}		% para utilizar termos em portugues
-% ---
-% \usepackage{tocloft}		
-\newcommand{\tocfont}{\normalsize}	% define tamanho de fonte para sumario como normal	
-% ---
-% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
-% ---
+\usepackage[final]{pdfpages}    % para incluir páginas de arquivos pdf
 \usepackage{lipsum}				% para geração de dummy text
-% ---
+\usepackage{csquotes}
 
-\usepackage[style=long]{glossaries}
-
-
+%\usepackage[style=long]{glossaries}
 %\usepackage{abntex2glossaries}
-% ---
-% Pacotes de citações
-% ---
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf,
-	    %abnt-emphasize=em,  %\emph opção padrão.
-            abnt-emphasize=bf  %\textbf
-            ]{abntex2cite}	% Citações padrão ABNT
 
-% --- 
-% CONFIGURAÇÕES DE PACOTES
-% --- 
+% permite representar o cancelamento de termos em texto ou equacoes
+\usepackage{cancel} 		
+% cores extendidas
+\usepackage{xcolor} 		
+% gera diagramas a partir de listas
+\usepackage{smartdiagram}   
+% Para a figura ficar na posição correta
+\usepackage{float} 		    
+% supporte para fontes da Text Companion 
+\usepackage{textcomp} 		
+% uso de longtable
+\usepackage{longtable}		
+% simbolos matematicos
+\usepackage{amsmath}	
+% páginas em paisagem
+\usepackage{lscape}
+% mescla de colunas em tabelas
+\usepackage{multicol}
+% mescla de linhas em tabelas
+\usepackage{multirow}
+% criação do indice de quadros
+\usepackage{newfloat} 
+% configura legenda 
+\usepackage{caption} 		
+%[format=plain]
+	%\renewcommand\caption[1]{%
+    \captionsetup{font=small}	% tamanho da fonte 10pt
+    %,format=hang
+ 	% \caption{#1}}
+	%\captionsetup{width=0.8\textwidth}
 
-% ---
-% Configurações do pacote backref
-% Usado sem a opção hyperpageref de backref
-\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-% Texto padrão antes do número das páginas
-\renewcommand{\backref}{}
-% Define os textos da citação
-\renewcommand*{\backrefalt}[4]{
-	\ifcase #1 %
-		Nenhuma citação no texto.%
-	\or
-		Citado na página #2.%
-	\else
-		Citado #1 vezes nas páginas #2.%
-	\fi}%
-% ---
+% Pacotes de citações BibLaTeX
+% ----------------------------------------------------------
+\usepackage[style=abnt,backref=true,backend=biber,citecounter=true,backrefstyle=three]{biblatex}
 
 
-% ---
-% Configurações de aparência do PDF final
+\DefineBibliographyStrings{brazil}{%
+ backrefpage = {Citado \arabic{citecounter} vez na página},% originally "cited on page"
+ backrefpages = {Citado \arabic{citecounter} vezes nas páginas},% originally "cited on pages"
+}
+
+% ----------------------------------------------------------
 
 % alterando o aspecto da cor azul
-\definecolor{blue}{RGB}{41,5,195}
+\definecolor{blue}{RGB}{55,10,249}
 
-% informações do PDF
-\makeatletter
-\hypersetup{
-     	%pagebackref=true,
-		pdftitle={\@title}, 
-		pdfauthor={\@author},
-    		pdfsubject={\imprimirpreambulo},
-		pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
-		colorlinks=true,       		% false: boxed links; true: colored links
-    		linkcolor=blue,          	% color of internal links
-    		citecolor=blue,        		% color of links to bibliography
-    		filecolor=magenta,     		% color of file links
-		urlcolor=blue,
-		bookmarksdepth=4
-}
-\makeatother
-% --- 
-
-
-% ---
-% compila o indice
-% ---
-\makeindex
-% ---
-
-\usepackage{cancel} 		% permite representar o cancelamento de termos em texto ou equacoes
-\usepackage{xcolor} 		% cores extendidas
-\usepackage{smartdiagram}       % gera diagramas a partir de listas
-
-\usepackage{float} 		% Para a figura ficar na posição correta
-\usepackage{textcomp} 		% supporte para fontes da Text Companion 
-\usepackage{longtable}		% uso de longtable
-\usepackage{amsmath}		% simbolos matematicos
-
-\usepackage{caption} 		% configura legenda 
-				%\renewcommand\caption[1]{%
-\captionsetup{font=small}	% tamanho da fonte 10pt
- 				% \caption{#1}}
-				%\captionsetup{width=0.8\textwidth}
-
-\usepackage{lscape}
-\usepackage{multicol}
-\usepackage{multirow}
-
-
-\usepackage{trivfloat}
-%\trivfloat{quadro}
-%\floatstyle{plaintop}
-%\restylefloat{quadro}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Criação do indice de quadros
- \usepackage{newfloat}
-
+% ----------------------------------------------------------
 \PrepareListOf{quadro}{%
 \renewcommand{\cftfigpresnum}{Quadro~}}
 
@@ -129,17 +77,8 @@ within= none, % numeracao continua
 %chapterlistsgaps=off
 ]{quadro}
 
-% Novo list of (listings) para QUADROS
-
-%\renewcommand{\quadroname}{QUADRO}
-%\newcommand{\listofquadrosname}{LISTA DE QUADROS}
-
-%\newfloat[chapter]{quadro}{loq}{\quadroname}
-%\newlistof{listofquadros}{loq}{\listofquadrosname}
 \newlistentry{quadro}{loq}{0}
 
-% configurações para atender às regras da ABNT
-%\counterwithout{quadro}{chapter}
 
 % Customize ‘List of Diagrams’
 \PrepareListOf{quadro}{%
@@ -165,6 +104,7 @@ within= none, % numeracao continua
 \def\append@star#1{#1*}
 \makeatother
 
+
 \AdjustForMemoir{quadro} % prepare `\listofdirfigures` so it accepts a *
 
 \makeatletter
@@ -184,25 +124,16 @@ within= none, % numeracao continua
 }
 \makeatother
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% citacao de acordo com a norma da UFPR 2015-agosto
-\renewenvironment{quotation}
-    {\vspace{.5\baselineskip}
-	\list{}{\listparindent 0em%
-		\SingleSpacing
-		\itemindent    
-		\listparindent
-		\rightmargin= 0mm
-        \leftmargin= 45mm
-        \parsep=0mm        }%\z@ \@plus\p@}%
-        \item\relax}
-        {
-        \vspace{.5\baselineskip}
-        \endlist
-        }
-        
-\newenvironment{citacaodireta}
-{\begin{quotation}\footnotesize}
-{\end{quotation}}        
+% Ajusta indentação de Referencias no ToC
+% ----------------------------------------------------------
+\defbibheading{bay}[\bibname]{%
+  \chapter*{#1}%
+  \markboth{#1}{#1}%
+  \addcontentsline{toc}{chapter}
+  {\protect\numberline{}\bibname}
+}
 
-\newcommand{\sugest}[1]{\textcolor{red!40}{#1}}
+\makeatletter
+\pretocmd{\chapter}{\addtocontents{toc}{\protect\addvspace{-5\p@}}}{}{}
+\pretocmd{\section}{\addtocontents{toc}{\protect\addvspace{2\p@}}}{}{}
+\makeatother
