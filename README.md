@@ -13,13 +13,18 @@ O modelo criado:
  00-pretextual.tex 	
    Utilização dos arquivos de entrada de dados e de pacotes para criar os elementos prétextuais
 
+ cap01.tex 	
+   Demonstração do uso de comandos criados para a customização
+   
  UFPR.sty 	 é o pacote de estilos
 	
  main.tex 	 arquivo principal da customização, é o arquivo que deve ser compilado.
  
  referencias.bib exemplo de um arquivo de referências bibliográficas para exemplificar o uso do abntex2cite
 
- Exemplo.jpg     arquivo da imagem de exemplo:  https://goo.gl/IpBzr1
+ figure.png     arquivo da imagem de exemplo:  https://goo.gl/IpBzr1, deve ser colocada na pasta fig;
+ FichaC1.pdf    arquivo da Ficha Catalográfica de exemplo: deve ser colocada na pasta metadados;
+ TermoA1.pdf    arquivo do Termo de aprovação de exemplo: deve ser colocada na pasta metadados.
 
 ==========================
 Instruções para o uso da customização:
@@ -32,6 +37,6 @@ Instruções para o uso da customização:
 
 4) Compile o arquivo main.tex 
 
-Qualquer dúvida ou comentário:  emilio.kavamura@ufpr.br
+Qualquer dúvida ou comentário:  emilio.kavamura@ufpr.br ou eek.edu@outlook.com
 
 Grato.
