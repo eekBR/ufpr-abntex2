@@ -8,124 +8,112 @@
 %%%%%%%
 % Os dados solicitados são, na ordem:
 %
+% tipo do trabalho
+% componentes do trabalho 
 % título do trabalho
 % nome do autor
 % local 
 % data (ano com 4 dígitos)
-% orientador
-% coorientador
+% orientador(a)
+% coorientador(a)(as)(es)
 % instituição
-% tipo de trabalho
+% setor
+% programa de pós gradução
+% curso
 % preambulo
+% data defesa
+% CDU
+% errata
+% assinaturas - termo de aprovação
 % epígrafe
-% resumo
+% resumos
 % palavras chave
 % abstract
 % keywords
 % agradecimentos
 % dedicatoria
-% siglas 
-% simbolos
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ---
+% arquivo com dados bibliográficos
+
 % Informações de dados para CAPA e FOLHA DE ROSTO
-% ---
-\titulo{\textbf{Modelo de\\ trabalho acadêmico com \abnTeX}}
-\autor{Rodrigo H M}
+%----------------------------------------------------------------------------- 
+\tipotrabalho{Trabalho Acadêmico}
+%    {Relatório Técnico}
+%    {Dissertação}
+%    {Tese}
+%    {Monografia}
+
+% Marcar Sim para as partes que irão compor o documento pdf
+%----------------------------------------------------------------------------- 
+ \providecommand{\terCapa}{Não}
+ \providecommand{\terFolhaRosto}{Sim}
+ \providecommand{\terTermoAprovacao}{Sim}
+ \providecommand{\terDedicatoria}{Nao}
+ \providecommand{\terFichaCatalografica}{Nao}
+ \providecommand{\terErrata}{Sim}
+ \providecommand{\terEpigrafe}{Nao}
+ \providecommand{\terAgradecimentos}{Nao}
+ \providecommand{\terDedicatoria}{Nao}
+ \providecommand{\terErrata}{Nao}
+ \providecommand{\terListaFiguras}{Sim}
+ \providecommand{\terListaTabelas}{Sim}
+ \providecommand{\terSiglasAbrev}{Nao}
+ \providecommand{\terResumos}{Nao}
+ \providecommand{\terSumario}{Sim}
+ \providecommand{\terApendice}{Nao}
+ \providecommand{\terAnexo}{Nao}
+ \providecommand{\terApendice}{Nao}
+ \providecommand{\terIndiceR}{Nao}
+%----------------------------------------------------------------------------- 
+
+\titulo{\textbf{Modelo de trabalho acadêmico com \abnTeX}}
+\autor{Rod Stewart}
 \local{Curitiba}
-\data{2015} %Apenas ano 4 dígitos
+\data{2017} %Apenas ano 4 dígitos
 
 % Orientador ou Orientadora
-\orientador{Prof Emílio Eiji Kavamura, MSc}
-\orientadora{}%Prof\textordfeminine Grace Kelly, DSc}
+\orientador{}
+%Prof Emílio Eiji Kavamura, MSc}
+\orientadora{
+Prof\textordfeminine~Grace Kelly, DSc}
 
 % Coorientador ou Coorientadora
 \coorientador{}%Prof Morgan Freeman, DSc}
-\coorientadora{Prof\textordfeminine Audrey Hepburn, DEng}
+\coorientadora{Prof\textordfeminine~Audrey Hepburn, DEng}
 
 % Segundo Coorientador ou Segunda Coorientadora
-\scoorientador{Prof Jack Nicholson, DEng}
-\scoorientadora{}%Prof\textordfeminine Ingrid Bergman, DEng}
+\scoorientador{}
+%Prof Jack Nicholson, DEng}
+\scoorientadora{}
+%Prof\textordfeminine~Ingrid Bergman, DEng}
 
 \instituicao{%
-  Universidade Federal do Paraná
-  }
-  %\par
-  %Departamento de Expressão Gráfica
-  %\par
-  %Curso de Expressão Gráfica}
-\tipotrabalho{Trabalho Acadêmico}
-% O preambulo deve conter o tipo do trabalho, o objetivo, 
-% o nome da instituição e a área de concentração 
-\preambulo{Trabalho apresentado como requisito parcial para a obtenção do grau de Bacharel em Expressão Gráfica no curso de Expressão Gráfica, Setor de Exatas da Universidade Federal do Paraná.}
+Universidade Federal do Paraná}
 
-\newcommand{\imprimirCurso}
-{Programa de P\'os Gradua\c{c}\~ao em Engenharia da Constru\c{c}\~ao Civil}
+\def \ImprimirSetor{}%
+%Setor de Tecnologia}
+
+\def \ImprimirProgramaPos{}%Programa de Pós Graduação em Engenharia de Construção Civil}
+
+\def \ImprimirCurso{}%
+%Curso de Engenharia Civil}
+
+\preambulo{
+Trabalho apresentado como requisito parcial para a obtenção do título de Mestre em Ciências pelo Programa de Pós Graduação em Engenharia de Construção Civil do  Setor de Tecnologia  da Universidade Federal do Paraná}
+%do grau de Bacharel em Expressão Gráfica no curso de Expressão Gráfica, Setor de Exatas da Universidade Federal do Paraná}
+
+%----------------------------------------------------------------------------- 
+
+\newcommand{\imprimirCurso}{}
+%Programa de P\'os Gradua\c{c}\~ao em Engenharia da Constru\c{c}\~ao Civil}
 
 \newcommand{\imprimirDataDefesa}{
 09 de Dezembro de 2018}
-% ---
 
-% ---
-\newcommand{
-\FichaCatalografica}{%\color{blue}
+\newcommand{\imprimircdu}{
+02:141:005.7}
 
-\imprimirautor
-	
-	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
-	\imprimirlocal, \imprimirdata-
-	
-	\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
-	
-	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
-	
-	\hspace{0.5cm}
-	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
-	\imprimirdata.}\\
-	
-	\hspace{0.5cm}
-	   \begin{minipage}{.70\textwidth}
-	    	1. \PalavraschaveTexto
-		
-		I. \imprimirorientador.
-		
-		II. \imprimirinstituicao.
-		
-		III. \imprimirCurso
-		
-		IV. \imprimirtitulo\\ 			
-	
-	\hspace{8.75cm} CDU 02:141:005.7\\
-	\end{minipage}
-	}
-
-% ---
-\newcommand{
-\AssinaAprovacao}{
-
-\assinatura{%\textbf
-   {Professor} \\ Convidado 1}
-   \assinatura{%\textbf
-   {Professor} \\ Convidado 2}
-   \assinatura{%\textbf
-   {Professor} \\ Convidado 3}
-   %\assinatura{%\textbf{Professor} \\ Convidado 4}
-      
-   \begin{center}
-    \vspace*{0.5cm}
-    %{\large\imprimirlocal}
-    %\par
-    %{\large\imprimirdata}
-    \imprimirlocal, \imprimirDataDefesa.
-    \vspace*{1cm}
-  \end{center}
-  }
-  
-% ---
-\newcommand{
-\Errata}{%\color{blue}
-Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
+\newcommand{\imprimirerrata}{
+Elemento opcional da \cites[4.2.1.2]{NBR14724:2011}. Exemplo:
 
 \vspace{\onelineskip}
 
@@ -145,41 +133,97 @@ Zootecnia, Universidade de São Paulo, São Paulo, 2011.
     1 & 10 & auto-conclavo & autoconclavo\\
    \hline
 \end{tabular}
-\end{table}
-}
+\end{table}}
 
-% ---
-\newcommand{
-\EpigrafeTexto}{%\color{blue}
+% Comandos de dados - Data da apresentação
+\providecommand{\imprimirdataapresentacaoRotulo}{}
+\providecommand{\imprimirdataapresentacao}{}
+\newcommand{\dataapresentacao}[2][\dataapresentacaoname]{\renewcommand{\dataapresentacao}{#2}}
+
+% Comandos de dados - Nome do Curso
+\providecommand{\imprimirnomedocursoRotulo}{}
+\providecommand{\imprimirnomedocurso}{}
+\newcommand{\nomedocurso}[2][\nomedocursoname]
+  {\renewcommand{\imprimirnomedocursoRotulo}{#1}
+\renewcommand{\imprimirnomedocurso}{#2}}
+
+
+% ----------------------------------------------------------
+\newcommand{\AssinaAprovacao}{
+
+\assinatura{%\textbf
+   {Professora} \\ UFPR}
+   \assinatura{%\textbf
+   {Professora} \\ ENSEADE}
+   \assinatura{%\textbf
+   {Professora} \\ TIT}
+   %\assinatura{%\textbf{Professor} \\ Convidado 4}
+      
+   \begin{center}
+    \vspace*{0.5cm}
+    %{\large\imprimirlocal}
+    %\par
+    %{\large\imprimirdata}
+    \imprimirlocal, \imprimirDataDefesa.
+    \vspace*{1cm}
+  \end{center}
+  }
+  
+% ----------------------------------------------------------
+%\newcommand{\Errata}{%\color{blue}
+%Elemento opcional da \textcite[4.2.1.2]{NBR14724:2011}. Exemplo:
+%}
+
+% ----------------------------------------------------------
+\newcommand{\EpigrafeTexto}{%\color{blue}
 \textit{``Não vos amoldeis às estruturas deste mundo, \\
 		mas transformai-vos pela renovação da mente, \\
 		a fim de distinguir qual é a vontade de Deus: \\
 		o que é bom, o que Lhe é agradável, o que é perfeito.\\
 		(Bíblia Sagrada, Romanos 12, 2)}
 }
-% ---
-\newcommand{
-\ResumoTexto}{%\color{blue}
-Segundo a \citeonline[3.1-3.2]{abntex2modelo}, o resumo deve ressaltar o  objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão destes itens dependem do tipo de resumo (informativo ou indicativo) e do tratamento que cada item recebe no documento original. O resumo deve ser precedido da referência do documento, com exceção do resumo inserido no próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do  resumo, antecedidas da expressão Palavras-chave:, separadas entre si por ponto e finalizadas também por ponto.
+
+% ----------------------------------------------------------
+\newcommand{\ResumoTexto}{%\color{blue}
+Segundo a \textcite[3.1-3.2]{abntex2modelo}, o resumo deve ressaltar o  objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão destes itens dependem do tipo de resumo (informativo ou indicativo) e do tratamento que cada item recebe no documento original. O resumo deve ser precedido da referência do documento, com exceção do resumo inserido no próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do  resumo, antecedidas da expressão Palavras-chave:, separadas entre si por ponto e finalizadas também por ponto.
 }
-% ---
-\newcommand{
-\PalavraschaveTexto}{%\color{blue}
-latex. abntex. editoração de texto.
-}
-% ---
-\newcommand{
-\AbstractTexto}{%\color{blue}
+
+\newcommand{\PalavraschaveTexto}{%\color{blue}
+latex. abntex. editoração de texto.}
+
+% ----------------------------------------------------------
+\newcommand{\AbstractTexto}{%\color{blue}
 This is the english abstract.
 }
 % ---
-\newcommand{
-\KeywordsTexto}{%\color{blue}
+\newcommand{\KeywordsTexto}{%\color{blue}
 latex. abntex. text editoration.
 }
+
+% ----------------------------------------------------------
+\newcommand{\Resume}
+{%\color{blue}
+%Il s'agit d'un résumé en français.
+} 
 % ---
-\newcommand{
-\AgradecimentosTexto}{%\color{blue}
+\newcommand{\Motscles}
+{%\color{blue}
+ %latex. abntex. publication de textes.
+}
+
+% ----------------------------------------------------------
+\newcommand{\Resumen}
+{%\color{blue}
+%Este es el resumen en español.
+}
+% ---
+\newcommand{\Palabrasclave}
+{%\color{blue}
+%latex. abntex. publicación de textos.
+}
+
+% ----------------------------------------------------------
+\newcommand{\AgradecimentosTexto}{%\color{blue}
 Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson, Leslie H. Watter, Bruno Parente Lima, Flávio de  Vasconcellos Corrêa, Otavio Real Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
 projeto abn\TeX\ foram extraídos de \url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que contribuíram para que a produção de trabalhos acadêmicos conforme as normas ABNT com \LaTeX\ fosse possível.
 
@@ -191,39 +235,12 @@ contribuirão para a evolução do \abnTeX.
 Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson, Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
 projeto abn\TeX\ foram extraídos de \url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que contribuíram para que a produção de trabalhos acadêmicos conforme as normas ABNT com \LaTeX\ fosse possível.
 }
-% ---
-\newcommand{
-\DedicatoriaTexto}{%\color{blue}
+
+% ----------------------------------------------------------
+\newcommand{\DedicatoriaTexto}{%\color{blue}
 \textit{ Este trabalho é dedicado às crianças adultas que,\\
    quando pequenas, sonharam em se tornar cientistas.}
 	}
-% ---	
 
-%\newcommand{\lsiglas}{
-%\begin{siglas}
-%   \item [AEC] Arquitetura, Engenharia e Construção.
-%   \item [API] Application Programming Interface ou Interface de Programação de Aplicativo.
-%   \item [BIM] Building Information Modeling ou Modelagem da Informação da Construção.
-%   \item [CAD] Computer Aided Design ou Desenho Assistido por Computador.
-%   \item [ID] Identification.
-%   \item [IDE] Integrated Development Environment ou Ambiente de Programação Integrado.
-%   \item [IFC] Industry Foundation Classes.
-%   \item [ISO] International Organization for Standartization ou Organização Internacional de      Normalização.
-%   \item [SPOC] Semana Paranaense de Obra Civis.
-%   \item [TI] Tecnologia da Informação.
-%   \item [UFPR] Universidade Federal do Paraná.
-%   \item [VBA] Visual Basic Application.
-%   \item [VPL] Visual Programming Language ou Linguagem de Programação Visual.
-%   \item [2D] 2 Dimensões (2D, 3D, 4D, 5D, ...).
-%\item[FFT] Transformadas R\'apidas de Fourier. 
-%\end{siglas}  
-%}
-
-%\def\lsimbolos{
-% \begin{simbolos}
-%   \item[$\Gamma$] Letra grega Gama
-%   \item[$\Lambda$] Lambda
-%   \item[$ \zeta $] Letra grega minúscula zeta
-%   \item[$ \in $] Pertence
-% \end{simbolos}
-%}
+% ----------------------------------------------------------
+\addbibresource{referencias.bib}
