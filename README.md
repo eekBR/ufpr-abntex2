@@ -3,6 +3,14 @@ Automatically exported from code.google.com/p/ufpr-abntex
 ==========================
 O modelo criado:
  
+ fig.jpg
+ tipog.png
+ figure.png são figuras e para compilar corretamente devem ser salvas na pasta fig/
+ 
+ TermoA1.pdf
+ FichaC1.pdf arquicos pdf do termo de aprovação  e ficha catalográfica. Para que os arquivos sejam inseridos nos 
+ locais devidos, deve-se colocá-lo na pasta: metadados/ e retirar o algarismo 1 no final dos nomes dos arquivos.
+ 
  00-dados.tex 
    Possui os dados necessários para identificar o autor, instituição, trabalho, preambulo, resumo, epígrafe
    lista de siglas e de simbolos,....
