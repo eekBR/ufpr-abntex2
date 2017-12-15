@@ -386,6 +386,9 @@
 % Folha de Aprovação
 %----------------------------------------------------------------------------- 
 \newcommand{\insereAprovacao}{
+\IfFileExists{metadados/TermoA.pdf}
+    {\includepdf[pages=-]{metadados/TermoA.pdf}}
+{
 \begin{folhadeaprovacao}%\color{blue}
 
   \begin{center}
@@ -420,7 +423,7 @@
   
 \end{folhadeaprovacao}
 }
-
+}
 
 
 %
