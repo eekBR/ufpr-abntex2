@@ -502,13 +502,12 @@
     \begin{minipage}{#2\textwidth} 
         \vspace{2mm}
         %\begin{flushleft}
-            FONTE:~#4
-            
+            \par FONTE:~#4
             \ifthenelse{\equal{#6}{}}{}
-            {\hangindent=14mm NOTA: #6 }
+            {\hangindent=14mm \par NOTA: #6 }
             
             \ifthenelse{\equal{#7}{}}{}
-            {\hangindent=14mm LEGENDA: #7 }
+            {\hangindent=14mm \par LEGENDA: #7 }
         %\end{flushleft}
     \end{minipage}
     \end{figure}
@@ -530,13 +529,12 @@
     \begin{minipage}{#2\textwidth} 
         \vspace{2mm}
         %\begin{flushleft}
-            FONTE:~#4
-            
+            \par FONTE:~#4
             \ifthenelse{\equal{#6}{}}{}
-            {\hangindent=14mm NOTA: #6 }
-            
+            {\hangindent=14mm \par NOTA: #6 }
+          
             \ifthenelse{\equal{#7}{}}{}
-            {\hangindent=14mm LEGENDA: #9 }
+            {\hangindent=14mm \par LEGENDA: #9 }
         %\end{flushleft}
     \end{minipage}
     \end{figure}
@@ -545,21 +543,22 @@
 
 % simplificação para colocar figuras
 % ----------------------------------------------------------
+\newsavebox{\mybox}
+\newlength{\myboxlen}
+
 \newcommand{\tabela}[6]
 {\small
- \newsavebox{\mybox}
   \sbox{\mybox}{#2}
-  \newlength{\myboxlen}
   \settowidth{\myboxlen}{\usebox{\mybox}}
   \noindent
   %\rule{\myboxlen}{1pt}\\
   \begin{table}[!ht]
- \centering
- \par\caption{#1}
+    \centering
+    \par\caption{#1}
+    
+    \par  #2
  
-  \par  #2
- 
- \label{tab:#3}
+    \label{tab:#3}
  
      \begin{minipage}{\myboxlen} 
         \vspace{2mm}
@@ -578,6 +577,4 @@
   % \usebox{\mybox}
   % box size: \the\myboxlen.
 }
-
-
 
