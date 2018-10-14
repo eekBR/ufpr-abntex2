@@ -144,24 +144,30 @@
 \renewcommand{\imprimircapa}{%
   \begin{capa}%
     \center
-    \ABNTEXchapterfont \MakeUppercase\imprimirinstituicao \vspace{-2mm}
+%    \ABNTEXchapterfont 
+    \MakeUppercase\imprimirinstituicao \vspace{-2mm}
     
     \ifthenelse{\equal \ImprimirSetor{}}{}{
-    \ABNTEXchapterfont \MakeUppercase\ImprimirSetor}
+%    \ABNTEXchapterfont 
+    \MakeUppercase\ImprimirSetor}
         \vspace{-2mm}
     
     \ifthenelse{\equal \ImprimirProgramaPos{}}{}{
-    \ABNTEXchapterfont \MakeUppercase\ImprimirProgramaPos}
+%    \ABNTEXchapterfont 
+    \MakeUppercase\ImprimirProgramaPos}
     
     \ifthenelse{\equal \ImprimirCurso{}}{}{
-    \ABNTEXchapterfont \MakeUppercase\ImprimirCurso}
+%    \ABNTEXchapterfont 
+    \MakeUppercase\ImprimirCurso}
     
     \vspace{40mm}
     
-    \ABNTEXchapterfont \MakeUppercase\imprimirautor
+%    \ABNTEXchapterfont 
+    \MakeUppercase\imprimirautor
 
     \vspace{40mm}
-    \ABNTEXchapterfont\MakeUppercase\imprimirtitulo
+%    \ABNTEXchapterfont
+    \MakeUppercase\imprimirtitulo
     \vfill
     
      %\large
@@ -192,13 +198,14 @@
   \begin{center}
 
     %\vspace*{1cm}
-    {\ABNTEXchapterfont
+    {
+	%\ABNTEXchapterfont
     %\large
     \MakeUppercase\imprimirautor}
 	
     \vspace*{\fill}%\vspace*{\fill}
     \begin{center}
-      \ABNTEXchapterfont
+%      \ABNTEXchapterfont
       %\bfseries
       %\Large
       \MakeUppercase\imprimirtitulo
@@ -447,10 +454,10 @@
 		pdfcreator={LaTeX with abnTeX2},
 		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
 		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=blue,          	% color of internal links
-    	citecolor=blue,        		% color of links to bibliography
+    	linkcolor=black,          	% color of internal links
+    	citecolor=black,        		% color of links to bibliography
     	filecolor=magenta,     		% color of file links
-		urlcolor=blue,
+		urlcolor=black,
 		bookmarksdepth=4
 }
 \makeatother
@@ -494,7 +501,7 @@
  \begin{center}\small
     \begin{figure}[!ht]
     \centering
-        \caption{#1}
+        \caption{\uppercase{#1}}
         \includegraphics[width=#2\textwidth]{#3}
         \label{fig:#5}
     
@@ -521,7 +528,7 @@
  \begin{center}\small
     \begin{figure}[!ht]
     \centering
-        \caption{#1}
+        \caption{\uppercase{#1}}
         \includegraphics[width=#2\textwidth, trim={#7mm #8 #7 #8},clip]{#3}
         \label{fig:#5}
         
@@ -554,7 +561,7 @@
   %\rule{\myboxlen}{1pt}\\
   \begin{table}[!ht]
     \centering
-    \par\caption{#1}
+    \par\caption{\uppercase{#1}}
     
     \par  #2
  
