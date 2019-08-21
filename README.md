@@ -1,4 +1,4 @@
-# ufpr-abntex
+# ufpr-abntex2
 Automatically exported from code.google.com/p/ufpr-abntex
 ==========================
 O modelo criado:
