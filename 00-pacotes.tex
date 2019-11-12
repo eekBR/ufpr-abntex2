@@ -51,7 +51,7 @@
 % Pacotes de citações BibLaTeX
 % ----------------------------------------------------------
 \usepackage[style=abnt,backref=true,backend=biber,citecounter=true,backrefstyle=three]{biblatex}
-
+\usepackage[abnt-repeated-author-omit=no,  abnt-repeated-title-omit=no]{abntex2cite}
 
 \DefineBibliographyStrings{brazil}{%
  backrefpage = {Citado \arabic{citecounter} vez na página},% originally "cited on page"
@@ -137,3 +137,8 @@ within= none, % numeracao continua
 \pretocmd{\chapter}{\addtocontents{toc}{\protect\addvspace{-5\p@}}}{}{}
 \pretocmd{\section}{\addtocontents{toc}{\protect\addvspace{2\p@}}}{}{}
 \makeatother
+
+% Para retirar os símbolos <> NBR6023:2018
+\@ifpackageloaded{url}{%
+\def\UrlLeft{}
+\def\UrlRight{}}
