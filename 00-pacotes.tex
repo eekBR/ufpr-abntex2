@@ -142,3 +142,14 @@ within= none, % numeracao continua
 \@ifpackageloaded{url}{%
 \def\UrlLeft{}
 \def\UrlRight{}}
+
+% Para retirar os símbolos <> da URL  
+\DeclareFieldFormat{illustrated}{\addspace #1\isdot}%
+\DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\addspace<\url{#1}>}%
+%\DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\addspace<\url{#1}>}%
+\DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\addspace \url{#1}}% remove <> em urls de acordo com abnt-6023:2018	
+
+% Ajustar o espaço para a formatação da data
+\DeclareFieldFormat{urldate}{\bibstring{urlseen}\addcolon\addspace #1}%
+
+\DeclareFieldFormat*{note}{\addspace #1}%
