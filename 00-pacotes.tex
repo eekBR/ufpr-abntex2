@@ -50,10 +50,8 @@
 
 % Pacotes de citações BibLaTeX
 % ----------------------------------------------------------
-\usepackage[style=abnt,backref=true,backend=biber,citecounter=true,backrefstyle=three]{biblatex}
-\let\biblabelsep\relax
-\let\apud\relax
-\usepackage[abnt-repeated-author-omit=no,  abnt-repeated-title-omit=no]{abntex2cite}
+\usepackage[style=abnt,backref=true,repeatfields=true, backend=biber,citecounter=true,backrefstyle=three]{biblatex}
+
 
 \DefineBibliographyStrings{brazil}{%
  backrefpage = {Citado \arabic{citecounter} vez na página},% originally "cited on page"
@@ -147,9 +145,9 @@ within= none, % numeracao continua
 
 % Para retirar os símbolos <> da URL  
 \DeclareFieldFormat{illustrated}{\addspace #1\isdot}%
-\DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\addspace<\url{#1}>}%
+\DeclareFieldFormat{url}{\bibstring{ }\addcolon\addspace<\url{#1}>}%
 %\DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\addspace<\url{#1}>}%
-\DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\addspace \url{#1}}% remove <> em urls de acordo com abnt-6023:2018	
+\DeclareFieldFormat{url}{\bibstring{ }\addcolon\addspace \url{#1}}% remove <> em urls de acordo com abnt-6023:2018	
 
 % Ajustar o espaço para a formatação da data
 \DeclareFieldFormat{urldate}{\bibstring{urlseen}\addcolon\addspace #1}%
