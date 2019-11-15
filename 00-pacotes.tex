@@ -145,9 +145,9 @@ within= none, % numeracao continua
 
 % Para retirar os símbolos <> da URL  
 \DeclareFieldFormat{illustrated}{\addspace #1\isdot}%
-\DeclareFieldFormat{url}{\bibstring{ }\addcolon\addspace<\url{#1}>}%
+%\DeclareFieldFormat{url}{\bibstring{urlform}\addcolon\addspace<\url{#1}>}%
 %\DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\addspace<\url{#1}>}%
-\DeclareFieldFormat{url}{\bibstring{ }\addcolon\addspace \url{#1}}% remove <> em urls de acordo com abnt-6023:2018	
+\DeclareFieldFormat{url}{\bibstring{}\addcolon\addspace \url{#1}}% remove <> em urls de acordo com abnt-6023:2018	
 
 % Ajustar o espaço para a formatação da data
 \DeclareFieldFormat{urldate}{\bibstring{urlseen}\addcolon\addspace #1}%
