@@ -153,3 +153,8 @@ within= none, % numeracao continua
 \DeclareFieldFormat{urldate}{\bibstring{urlseen}\addcolon\addspace #1}%
 
 \DeclareFieldFormat*{note}{\addspace #1}%
+
+% Para ajustar o tamanho da fonte do número da primeira página do capítulo
+% comando utilizado na parte textual 
+\makepagestyle{chapfirst}% Just for the first page of a chapter
+\makeoddhead{chapfirst}{}{}{\normalsize{\thepage}}
