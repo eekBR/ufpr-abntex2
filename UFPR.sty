@@ -378,16 +378,39 @@
 
 \makeatother
 
-% Simbolos
+% Simbolos com a colaboração da Isabela Gebauer Soares 2020/02/24
 %----------------------------------------------------------------------------- 
-
 \makeatletter
 	\newcommand\criarsimbolo[2]{%
-		\write\@auxout{\noexpand\@writefile{sbl}{\noexpand\item[#1] #2}}}
+		\write\@auxout{\noexpand\@writefile{sbl}{
+				\noexpand\sortitem{#1}{\ignorespaces#2}}} #1
+		}
+		        
+	\newenvironment{sortedsimb}{%
+		\DTLifdbexists{list}{\DTLcleardb{list}}{\DTLnewdb{list}}%
+	    }
+    	{
+		\DTLsort{description}{list}%
+		\begin{description}
+		    [labelsep=2mm, 
+		     labelwidth=20mm, 
+		     leftmargin = 22mm]%
+			
+            \DTLforeach*{list}
+                {\theLabel=label,\theDesc=description}
+                {\item[\theLabel] \theDesc}		
+		\end{description}
+	    }		        
+		        
 	\newcommand\imprimirlistadesimbolos{%
-		\begin{simbolos}
+		\begin{center}
+			{\ABNTEXchapterfont{LISTA DE S\'IMBOLOS}}
+			\vspace*{1.1cm}
+		\begin{sortedsimb}
 			  \@starttoc{sbl}
-		\end{simbolos}}
+		\end{sortedsimb}
+	    \end{center}
+	}
 \makeatother
 
 % Folha de Aprovação
