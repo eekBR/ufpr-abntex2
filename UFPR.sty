@@ -358,7 +358,9 @@
 	}
 	{
 		\DTLsort{label}{list}%
-		\begin{description}%
+		\begin{description}[labelsep=15mm, align=left, 
+		                    labelwidth=25mm,
+		                    leftmargin=40mm, labelindent=0mm]%
 			
 \DTLforeach*{list}{\theLabel=label,\theDesc=description}{\item[\theLabel] \theDesc}		
 	
@@ -393,7 +395,7 @@
 		\DTLsort{description}{list}%
 		\begin{description}
 		    [labelsep=2mm, 
-		     labelwidth=20mm, 
+		     labelwidth=25mm, 
 		     leftmargin = 22mm]%
 			
             \DTLforeach*{list}
