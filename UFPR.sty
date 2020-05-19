@@ -34,8 +34,8 @@
 %          UFPR.sty   ajusta do modelo canonico às normas  UFPR
 %
 %    referencias.bib
-%
-\ProvidesPackage{UFPR}[2017/12/04 Criacao desta customizacao do abnTeX2 para UFPR]
+% 
+\ProvidesPackage{UFPR}[2011/12/04 Criacao desta customizacao do abnTeX2 para UFPR]
 
 
 % Hifenizacao e caracteres especiais portugues-brasil por padrao
@@ -43,6 +43,7 @@
 \RequirePackage[brazil]{babel}
 
 \RequirePackage{suffix} % para comando \criarsigla*
+\RequirePackage{tikz} % para comando \criarsigla*
 
 % Fontes em Helvet - Arial
 %----------------------------------------------------------------------------
@@ -145,6 +146,12 @@
 %----------------------------------------------------------------------------- 
 \renewcommand{\imprimircapa}{%
   \begin{capa}%
+    \center
+    \begin{tikzpicture}[remember picture,overlay] 
+    	\node[anchor=south west, yshift= 25mm, xshift=-1.5mm] at 
+		(current page.south west) 
+		{\includegraphics[width = \paperwidth]{fig/capaufpr.jpg}};
+    \end{tikzpicture}
     \center
 %    \ABNTEXchapterfont 
     \MakeUppercase\imprimirinstituicao \vspace{-2mm}
