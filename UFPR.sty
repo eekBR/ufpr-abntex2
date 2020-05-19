@@ -562,7 +562,7 @@
     \begin{figure}[!ht]
     \centering
         \caption{\uppercase{#1}}
-        \includegraphics[width=#2\textwidth, trim={#7mm #8 #7 #8},clip]{#3}
+        \includegraphics[width=#2\textwidth, trim={#8mm #9 #8 #9},clip]{#3}
         \label{fig:#5}
         
     %ajustado p/ a largura da imagem
@@ -574,7 +574,7 @@
             {\par \hangindent=14mm NOTA: #6 }
           
             \ifthenelse{\equal{#7}{}}{}
-            {\par hangindent=14mm   LEGENDA: #9 }
+            {\par hangindent=14mm   LEGENDA: #7 }
         %\end{flushleft}
     \end{minipage}
     \end{figure}
