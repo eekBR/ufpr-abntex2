@@ -345,8 +345,14 @@
 \makeatletter
 
 	\newcommand\criarsigla[2]{%
-		\write\@auxout{\noexpand\@writefile{sig}{\noexpand\sortitem{#1} {#2}}}}
-
+		\write\@auxout{\noexpand\@writefile{sig}
+			      {\noexpand\sortitem{#1} {#2}}}}
+	
+	\WithSuffix\newcommand\criarsigla*[2]{%
+		\write\@auxout{\noexpand\@writefile{sig}
+			      {\noexpand\sortitem{#1} {#2}}}
+		              #2~(#1)}
+		
 	\newcommand{\sortitem}[2]{%
 		\DTLnewrow{list}%
 		\DTLnewdbentry{list}{label}{#1}%
