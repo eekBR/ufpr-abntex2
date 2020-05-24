@@ -18,6 +18,7 @@
 %% http://abntex2.googlecode.com/
 %%
 %% https://code.google.com/p/abntex2/issues/ 
+%%
 %% Further information about UFPR abnTeX2 are available on 
 %%
 %% https://github.com/eekBR/ufpr-abntex/
@@ -31,17 +32,18 @@
 %          UFPR.sty   ajusta do modelo canonico às normas  UFPR
 %
 %    referencias.bib
-%
+%                     e outras arquivos de imagens
 %
 %
 %------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % abnTeX2: Modelo de Trabalho Academico (tese de doutorado, dissertacao de
 % mestrado e trabalhos monograficos em geral) em conformidade com 
-% ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos -
-% Apresentacao
+% ABNT NBR 6023:2018: Informação e documentação - Referências - Elaboração
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
+%
+% DATA DE ATUALIZAÇÃO: 2020-05-24
 
 \documentclass[
         % -- opções da classe memoir --
@@ -57,7 +59,7 @@
         %subsubsection=TITLE,  % títulos de subsubseções convertidos em letras maiúsculas
         % -- opções do pacote babel --
         english,                        % idioma adicional para hifenização
-        french,                         % idioma adicional para hifenização
+        %french,                         % idioma adicional para hifenização
         spanish,                        % idioma adicional para hifenização
         portugues,                      % o último idioma é o principal do documento
         %%%%%%%%%%%%
@@ -124,7 +126,6 @@
 %\part{Resultados}
 %\input{cap05}
 
-
 % Finaliza a parte no bookmark do PDF
 % para que se inicie o bookmark na raiz
 % e adiciona espaço de parte no Sumário
@@ -148,10 +149,8 @@
 % ----------------------------------------------------------
 %\bibliography{referencias}
 
-
 \printbibliography[heading=bay]
 % ----------------------------------------------------------
-
 
 % Glossário
 % ----------------------------------------------------------
