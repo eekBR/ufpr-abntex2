@@ -122,6 +122,13 @@
 \cleardoublepage
 }{}
 
+% inserir lista de quadros
+% ----------------------------------------------------------
+\ifthenelse{\equal{\terListaQuadros}{Sim}}{
+%\pdfbookmark[0]{\listtablename}{lot}
+\listofquadros*
+\cleardoublepage
+}{}
 
 % inserir lista de tabelas
 % ----------------------------------------------------------
