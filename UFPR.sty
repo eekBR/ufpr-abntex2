@@ -488,26 +488,19 @@
 \makeatletter
 \hypersetup{
      	%pagebackref=true,
-		pdftitle={\@title}, 
-		pdfauthor={\@author},
-    	pdfsubject={\imprimirpreambulo},
-		pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
-		colorlinks=true,       		% false: boxed links; true: colored links
+	pdftitle={\@title}, 
+	pdfauthor={\@author},
+       	pdfsubject={\imprimirpreambulo},
+	pdfcreator={LaTeX with abnTeX2},
+	pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+	colorlinks=true,       		% false: boxed links; true: colored links
     	linkcolor=black,          	% color of internal links
     	citecolor=black,        		% color of links to bibliography
     	filecolor=magenta,     		% color of file links
-		urlcolor=black,
-		bookmarksdepth=4
+	urlcolor=black,
+	bookmarksdepth=4
 }
 \makeatother
-
-
-
-%\trivfloat{quadro}
-%\floatstyle{plaintop}
-%\restylefloat{quadro}
-
 
 % citacao de acordo com a norma da UFPR 2015-agosto
 % ----------------------------------------------------------
@@ -657,3 +650,16 @@
   % box size: \the\myboxlen.
 }
 
+% Ambiente e lista de quadros
+% ----------------------------------------------------------
+\newfloat{quadro}{quadros}{QUADRO}
+\newlistof{listofquadros}{quadros}{Lista de Quadros}
+\newlistentry{quadro}{quadros}{0}
+\cftsetindents{quadro}{0mm}{13mm}
+
+%\PrepareListOf{quadro}{%
+\renewcommand{\cftquadropresnum}{\normalsize{QUADRO}~}
+\setlength{\cftquadronumwidth}{28mm}
+%\renewcommand{\cftquadroname}{\quadroname\space} 
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+%}
