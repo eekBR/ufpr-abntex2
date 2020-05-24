@@ -63,50 +63,6 @@
 % alterando o aspecto da cor azul
 \definecolor{blue}{RGB}{55,10,249}
 
-% ----------------------------------------------------------
-\PrepareListOf{quadro}{%
-\renewcommand{\cftfigpresnum}{QUADRO~}}
-
-\DeclareFloatingEnvironment[
-fileext=loq,
-listname={\textbf{LISTA DE QUADROS}},
-name=Quadro,
-%placement=p,
-within= none, % numeracao continua
-%within=section, % numeracao reinicia em cada seccao
-%chapterlistsgaps=off
-]{quadro}
-
-\newlistentry{quadro}{loq}{0}
-
-
-% Customize ‘List of Diagrams’
-\PrepareListOf{quadro}{%
-\renewcommand{\cftquadropresnum}{\normalsize{QUADRO}~}
-\setlength{\cftquadronumwidth}{3.2cm}
-%\renewcommand{\cftquadroname}{\quadroname\space} 
-\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
-}
-
-\makeatletter
-%% we define a helper macro for adjusting lists of new floats to
-%% accept a * behind them for not being shown in the TOC, like
-%% the other list printing commands in memoir
-\newcommand{\AdjustForMemoir}[1]{%
-  \csletcs{kept@listof#1}{listof#1}%
-  \csdef{listof#1}{%
-    \@ifstar
-     {\csappto{newfloat@listof#1@hook}{\append@star}%
-      \csuse{kept@listof#1}}%
-     {\csuse{kept@listof#1}}%
-  }
-}
-\def\append@star#1{#1*}
-\makeatother
-
-
-\AdjustForMemoir{quadro} % prepare `\listofdirfigures` so it accepts a *
-
 \makeatletter
 \let\oldcontentsline\contentsline
 \def\contentsline#1#2{%
