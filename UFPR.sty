@@ -663,3 +663,35 @@
 %\renewcommand{\cftquadroname}{\quadroname\space} 
 \renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
 %}
+
+\newsavebox{\myboxq}
+\newlength{\myboxlenq}
+
+\newcommand{\qquadro}[6]
+  {
+   \small
+   %\begin{center}
+   \sbox{\myboxq}{#2}
+   \settowidth{\myboxlenq}{\usebox{\myboxq}}
+   \begin{quadro} 
+        \caption{\uppercase{#1}}
+        \noindent 
+        
+        #2 
+   			
+        %ajustado p/ a largura da imagem
+    	\begin{minipage}{\myboxlenq} \footnotesize
+    	    \vspace{2mm}
+    		%\begin{flushleft}
+    		\par FONTE:~#3
+    		\ifthenelse{\equal{#5}{}}{}
+    		{ \par\hangindent=14mm NOTA: #5 }
+    				
+    		\ifthenelse{\equal{#6}{}}{}
+    		{ \par\hangindent=14mm LEGENDA: #6 }
+    		%\end{flushleft}
+    	\end{minipage}
+    %\end{center}
+    \label{qua:#4}
+  \end{quadro}
+  }
