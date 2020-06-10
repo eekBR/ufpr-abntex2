@@ -17,68 +17,43 @@
 %\usepackage[style=long]{glossaries}
 %\usepackage{abntex2glossaries}
 
-% permite representar o cancelamento de termos em texto ou equacoes
-\usepackage{cancel} 		
-% cores extendidas
-\usepackage{xcolor} 		
-% gera diagramas a partir de listas
-\usepackage{smartdiagram}   
-% Para a figura ficar na posição correta
-\usepackage{float} 		    
-% supporte para fontes da Text Companion 
-\usepackage{textcomp} 		
-% uso de longtable
-\usepackage{longtable}		
-% simbolos matematicos
-\usepackage{amsmath}	
-% páginas em paisagem
-\usepackage{lscape}
-% mescla de colunas em tabelas
-\usepackage{multicol}
-% mescla de linhas em tabelas
-\usepackage{multirow}
-% criação do indice de quadros
-\usepackage{newfloat} 
-% configura legenda 
-\usepackage{caption} 		
-%[format=plain]
+
+\usepackage{cancel} 		% permite representar o cancelamento de termos em texto ou equacoes	
+\usepackage{xcolor} 		% cores extendidas	
+\usepackage{smartdiagram}   	% gera diagramas a partir de listas
+%\usepackage{float} 		% Para a figura ficar na posição correta	    
+\usepackage{textcomp} 		% supporte para fontes da Text Companion 
+\usepackage{longtable}		% uso de longtable
+\usepackage{amsmath}		% simbolos matematicos
+\usepackage{lscape}		% páginas em paisagem
+\usepackage{multicol}		% mescla de colunas em tabelas
+\usepackage{multirow}		% mescla de linhas em tabelas
+\usepackage{newfloat} 		% criação do indice de quadros
+\usepackage{caption} 		% configura legenda 
+	%[format=plain]
 	%\renewcommand\caption[1]{%
-    \captionsetup{font=small}	% tamanho da fonte 10pt
-    %,format=hang
+    	\captionsetup{font=small}	% tamanho da fonte 10pt
+    	%,format=hang
  	% \caption{#1}}
 	%\captionsetup{width=0.8\textwidth}
 
 % Pacotes de citações BibLaTeX
 % ----------------------------------------------------------
-\usepackage[style=abnt,backref=true,repeatfields=true, backend=biber,citecounter=true,backrefstyle=three]{biblatex}
+\usepackage[style=abnt,
+	backref=true,
+	repeatfields=true, 
+	backend=biber,
+	citecounter=true,
+	backrefstyle=three, 
+	url=true]{biblatex}
 
-
-\DefineBibliographyStrings{brazil}{%
- backrefpage = {Citado \arabic{citecounter} vez na página},% originally "cited on page"
- backrefpages = {Citado \arabic{citecounter} vezes nas páginas},% originally "cited on pages"
-}
-
+% Texto padrão para as referências
 % ----------------------------------------------------------
-
-% alterando o aspecto da cor azul
-\definecolor{blue}{RGB}{55,10,249}
-
-\makeatletter
-\let\oldcontentsline\contentsline
-\def\contentsline#1#2{%
-    \expandafter\ifx\csname l@#1\endcsname\l@section
-	\expandafter\@firstoftwo
-	\else
-	\expandafter\@secondoftwo
-	\fi
-	{%
-		\oldcontentsline{#1}{\MakeTextUppercase{#2}}%
-	}{%
-	\normalsize %ajusta tamanho da fonte na lista
-	\oldcontentsline{#1}{#2}%
-}%
+\DefineBibliographyStrings{brazil}{%
+	 backrefpage  = {Citado \arabic{citecounter} vez na página},		% originally "cited on page"
+	 backrefpages = {Citado \arabic{citecounter} vezes nas páginas},	% originally "cited on pages"
+	 urlfrom      = {Dispon\'ivel em},
 }
-\makeatother
 
 % Ajusta indentação de Referencias no ToC
 % ----------------------------------------------------------
@@ -89,28 +64,50 @@
   {\protect\numberline{}\bibname}
 }
 
+% Formatando o avançao dos títulos no sumário 
+% ----------------------------------------------------------
 \makeatletter
-\pretocmd{\chapter}{\addtocontents{toc}{\protect\addvspace{-5\p@}}}{}{}
-\pretocmd{\section}{\addtocontents{toc}{\protect\addvspace{2\p@}}}{}{}
+	\pretocmd{\chapter}{\addtocontents{toc}{\protect\addvspace{-12\p@}}}{}{}
+	\pretocmd{\section}{\addtocontents{toc}{\protect\addvspace{-3\p@}}}{}{}
 \makeatother
 
-% Para retirar os símbolos <> NBR6023:2018
-\@ifpackageloaded{url}{%
-\def\UrlLeft{}
-\def\UrlRight{}}
-
 % Para retirar os símbolos <> da URL  
+% ----------------------------------------------------------
 \DeclareFieldFormat{illustrated}{\addspace #1\isdot}%
 %\DeclareFieldFormat{url}{\bibstring{urlform}\addcolon\addspace<\url{#1}>}%
 %\DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\addspace<\url{#1}>}%
-\DeclareFieldFormat{url}{\bibstring{}\addcolon\addspace \url{#1}}% remove <> em urls de acordo com abnt-6023:2018	
+\DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon \space\addspaceurl{#1}} 
+% remove <> em urls de acordo com abnt-6023:2018	
 
 % Ajustar o espaço para a formatação da data
+% ----------------------------------------------------------
 \DeclareFieldFormat{urldate}{\bibstring{urlseen}\addcolon\addspace #1}%
-
 \DeclareFieldFormat*{note}{\addspace #1}%
 
 % Para ajustar o tamanho da fonte do número da primeira página do capítulo
 % comando utilizado na parte textual 
+% ----------------------------------------------------------
 \makepagestyle{chapfirst}% Just for the first page of a chapter
 \makeoddhead{chapfirst}{}{}{\normalsize{\thepage}}
+
+% Define a formatação dos capítulos póstextuais numerados
+% ----------------------------------------------------------
+\newcommand{\poschap}[1]{
+	\stepcounter{chapter}
+	\markboth{#1}{#1}%
+	\pdfbookmark[2]{#1}{#1}
+	\addtocontents{toc}{\vspace{-0pt}}
+	\addcontentsline{toc}{chapter}{\hspace{11mm}\textbf{\appendixname~
+	\thechapter~- #1}}
+	\chapter*{\appendixname\space\space\thechapter~- #1}%
+	{}
+}
+
+% uso do tikz e pgfplots
+% ----------------------------------------------------------
+%\usetikzlibrary{external}
+\usetikzlibrary{arrows,calc,patterns,angles,quotes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+
+
