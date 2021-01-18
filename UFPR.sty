@@ -531,7 +531,7 @@
 % simplificação para colocar figuras
 % ----------------------------------------------------------
 \newcommand{\figura}[7]{
- \begin{center}\small
+ \begin{center}\footnotesize
     \begin{figure}[!ht]
     \centering
         \caption{\uppercase{#1}}
@@ -558,7 +558,7 @@
 % simplificação para colocar figuras
 % ----------------------------------------------------------
 \newcommand{\figurac}[9]{
- \begin{center}\small
+ \begin{center}\footnotesize
     \begin{figure}[!ht]
     \centering
         \caption{\uppercase{#1}}
@@ -587,7 +587,7 @@
 \newlength{\myboxlena}
 
 \newcommand{\imagem}[6]{
-	\begin{center}\small
+	\begin{center}\footnotesize
   	    \sbox{\myboxa}{#2}
 		\settowidth{\myboxlena}{\usebox{\myboxa}}
 		\noindent
@@ -625,7 +625,7 @@
   \noindent
   %\rule{\myboxlen}{1pt}\\
   \begin{table}[!ht]
-    \centering\small
+    \centering\footnotesize
     \par\caption{\uppercase{#1}}
     
     \par  #2
@@ -633,7 +633,7 @@
     \label{tab:#4}
  
      \begin{minipage}{\myboxlen} 
-        \vspace{2mm}\small
+        \vspace{2mm}\footnotesize
         %\begin{flushleft}
             FONTE:~ #3
             
@@ -673,7 +673,7 @@
    %\begin{center}
    \sbox{\myboxq}{#2}
    \settowidth{\myboxlenq}{\usebox{\myboxq}}
-   \begin{quadro} \small
+   \begin{quadro} \footnotesize
         \caption{\uppercase{#1}}
         \noindent 
         
