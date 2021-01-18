@@ -43,7 +43,7 @@
 \RequirePackage[brazil]{babel}
 
 \RequirePackage{suffix} % para comando \criarsigla*
-\RequirePackage{tikz} % para comando \criarsigla*
+\RequirePackage{tikz} % TikZ ist kein Zeichenprogramm (mas usado para desenho)
 
 % Fontes em Helvet - Arial
 %----------------------------------------------------------------------------
@@ -638,10 +638,10 @@
             FONTE:~ #3
             
             \ifthenelse{\equal{#5}{}}{}
-            {\hangindent=13mm NOTA: #5 }
+            {\hangindent=14mm NOTA: #5 }
             
             \ifthenelse{\equal{#6}{}}{}
-            {\hangindent=13mm LEGENDA: #6}
+            {\hangindent=14mm LEGENDA: #6}
         %\end{flushleft}
     \end{minipage}
 \end{table}
