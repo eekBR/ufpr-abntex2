@@ -528,6 +528,15 @@
 % ----------------------------------------------------------
 \newcommand{\sugest}[1]{\textcolor{red!40}{#1}}
 
+
+% Define o comando para citação de fontes em elementos gráficos (figuras, imagens,...).
+% ----------------------------------------------------------
+%  AUTOR(ano)
+%
+% parâmetro é a bibkey da fonte
+  
+\newcommand{\citefg}[1]{~\citeauthor{#1}(\citeyear{#1})}
+
 % simplificação para colocar figuras
 % ----------------------------------------------------------
 \newcommand{\figura}[7]{
