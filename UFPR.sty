@@ -529,16 +529,17 @@
 \newcommand{\sugest}[1]{\textcolor{red!40}{#1}}
 
 
-% Define o comando para citação de fontes em elementos gráficos (figuras, imagens,...).
-% ----------------------------------------------------------
-%  AUTOR(ano)
-%
-% parâmetro é a bibkey da fonte
-  
-\newcommand{\citefg}[1]{~\citeauthor{#1}(\citeyear{#1})}
-
 % simplificação para colocar figuras
 % ----------------------------------------------------------
+%   Parametros
+%    1 caption
+%    2 percent textwidth
+%    3 arquivo da figura
+%    4 fonte
+%    5 fig:label
+%    6 nota
+%    7 legenda
+
 \newcommand{\figura}[7]{
  \begin{center}\footnotesize
     \begin{figure}[!ht]
@@ -551,7 +552,7 @@
     \begin{minipage}{#2\textwidth} 
         \vspace{2mm}
         %\begin{flushleft}
-            \par FONTE:~\citefg{#4}
+            \par FONTE:~#4
             \ifthenelse{\equal{#6}{}}{}
             { \par\hangindent=14mm NOTA: #6 }
             
@@ -564,8 +565,19 @@
 }
 
 
-% simplificação para colocar figuras
+% simplificação para colocar figuras cortadas
 % ----------------------------------------------------------
+%   Parametros
+%    1 caption
+%    2 percent textwidth
+%    3 arquivo da figura
+%    4 fonte
+%    5 fig:label
+%    6 nota
+%    7 legenda
+%    8 recorte esquerda direita em mm
+%    9 recorte inferior superior em mm
+
 \newcommand{\figurac}[9]{
  \begin{center}\footnotesize
     \begin{figure}[!ht]
@@ -592,6 +604,14 @@
 
 % simplificação para colocar imagens
 % ----------------------------------------------------------
+%   Parametros
+%    1 caption
+%    2 tabela
+%    3 fonte
+%    4 tab:label
+%    5 nota
+%    6 legenda
+
 \newsavebox{\myboxa}
 \newlength{\myboxlena}
 
@@ -610,7 +630,7 @@
 			\begin{minipage}{\myboxlena} \footnotesize
 				\vspace{2mm}
 				%\begin{flushleft}
-				\par FONTE:~\citefg{#3}
+				\par FONTE:~#3
 				\ifthenelse{\equal{#5}{}}{}
 				{ \par\hangindent=14mm NOTA: #5 }
 				
@@ -622,8 +642,16 @@
 	\end{center}
 }
 
-% simplificação para colocar figuras
+% simplificação para colocar tabelas
 % ----------------------------------------------------------
+%   Parametros
+%    1 caption
+%    2 tabela
+%    3 fonte
+%    4 tab:label
+%    5 nota
+%    6 legenda
+
 \newsavebox{\mybox}
 \newlength{\myboxlen}
 
@@ -676,6 +704,15 @@
 \newsavebox{\myboxq}
 \newlength{\myboxlenq}
 
+% ----------------------------------------------------------
+%   Parametros
+%    1 caption
+%    2 tabela/quadro
+%    3 fonte
+%    4 qua:label
+%    5 nota
+%    6 legenda
+
 \newcommand{\qquadro}[6]
   {
    
@@ -684,9 +721,10 @@
    \settowidth{\myboxlenq}{\usebox{\myboxq}}
    \begin{quadro} \footnotesize
         \caption{\uppercase{#1}}
+	\label{qua:#4}
         \noindent 
         
-        #2 placed inside the environment
+        #2 %placed inside the environment
    			
         %ajustado p/ a largura da tabela (quadro)
     	\begin{minipage}{\myboxlenq} \footnotesize
