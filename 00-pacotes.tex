@@ -91,8 +91,24 @@
 % comando utilizado na parte textual 
 % ----------------------------------------------------------
 \makepagestyle{chapfirst}% Just for the first page of a chapter
-\makeoddhead{chapfirst}{}{}{\normalsize{\thepage}}
+\makeoddhead{chapfirst}{}{}{\footnotesize{\thepage}}
 
+%%criar um novo estilo de cabeçalhos e rodapés
+\makepagestyle{simplestextual}
+  %%cabeçalhos
+  \makeevenhead{simplestextual} %%pagina par
+     {}{}{\footnotesize \thepage}
+     
+  \makeoddhead{simplestextual} %%pagina ímpar ou com oneside
+     {}{}{\footnotesize \thepage}
+  %\makeheadrule{simplestextual}{\textwidth}{\normalrulethickness} %linha
+  %% rodapé
+  \makeevenfoot{simplestextual}
+     {}{}{} %%pagina par
+      
+  \makeoddfoot{simplestextual} %%pagina ímpar ou com oneside
+     {}{}{}
+     
 % Define a formatação dos capítulos póstextuais numerados
 % ----------------------------------------------------------
 \newcommand{\poschap}[1]{
