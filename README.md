@@ -1,4 +1,5 @@
 # ufpr-abntex2
+
 ==========================
 
 ##O modelo criado:
@@ -35,6 +36,7 @@
  TermoA1.pdf    arquivo do Termo de aprovação de exemplo: deve ser colocada na pasta metadados.
 
 ==========================
+
 ##Instruções para o uso da customização:
 
 1) Utilize a codificação UTF-8 para trabalhar com a customização;
