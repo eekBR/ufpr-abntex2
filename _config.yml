@@ -2,7 +2,7 @@ title: Ufpr-abntex
 description: Automatically exported from code.google.com/p/ufpr-abntex
 google_analytics: 
 show_downloads: true
-theme: jekyll-theme-midnight
+theme: jekyll-theme-architect
 
 gems:
   - jekyll-mentions
