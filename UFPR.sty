@@ -730,9 +730,13 @@
         \noindent 
         
         #2 %placed inside the environment
+	
    			
-        %ajustado p/ a largura da tabela (quadro)
-    	\begin{minipage}{\myboxlenq} \footnotesize
+        %ajustado p/ a largura da tabela (quadro) se menor que 30mm a largura é ajustada para .5\linewidth
+	 
+        \ifdimcomp {\myboxlenq}{<}{30mm}{\settowidth{\myboxlenq}{\hspace{.5\linewidth}}}{}
+    	
+	\begin{minipage}{\myboxlenq} \footnotesize
     	    \vspace{2mm}
     		%\begin{flushleft}
     		\par FONTE:~#3
