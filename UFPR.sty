@@ -622,7 +622,8 @@
 \newlength{\myboxlena}
 
 \newcommand{\imagem}[6]{
-	\begin{center}\footnotesize
+	{
+	\centering\footnotesize
   	    \sbox{\myboxa}{#2}
 		\settowidth{\myboxlena}{\usebox{\myboxa}}
 		\noindent
@@ -645,7 +646,7 @@
 				%\end{flushleft}
 			\end{minipage}
 		\end{figure}
-	\end{center}
+	}
 }
 
 % simplificação para colocar tabelas
