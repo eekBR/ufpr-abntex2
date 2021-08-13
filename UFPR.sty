@@ -546,9 +546,10 @@
 %    7 legenda
 
 \newcommand{\figura}[7]{
- \begin{center}\footnotesize
-    \begin{figure}[!ht]
-    \centering
+  {\centering
+   \footnotesize
+   \begin{figure}[!ht]
+   \centering
         \caption{\uppercase{#1}}
         \includegraphics[width=#2\textwidth]{#3}
         \label{fig:#5}
@@ -566,7 +567,7 @@
         %\end{flushleft}
     \end{minipage}
     \end{figure}
- \end{center}
+    }
 }
 
 
