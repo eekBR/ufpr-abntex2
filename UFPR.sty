@@ -587,7 +587,7 @@
 \newcommand{\figurac}[9]{
  \centering\footnotesize
     \begin{figure}[!ht]
-    \centering
+    {\centering
         \caption{\uppercase{#1}}
         \includegraphics[width=#2\textwidth, trim={#8mm #9 #8 #9},clip]{#3}
         \label{fig:#5}
@@ -604,8 +604,9 @@
             {\par \hangindent=14mm   LEGENDA: #7 }
         %\end{flushleft}
     \end{minipage}
+    }
     \end{figure}
- }
+ 
 }
 
 % simplificação para colocar imagens
