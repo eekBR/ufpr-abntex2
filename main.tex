@@ -152,7 +152,13 @@
 % ----------------------------------------------------------
 %\bibliography{referencias}
 
-\printbibliography[heading=bay]
+\begingroup
+\setstretch{1.0}
+\printbibliography[heading=bay,notkeyword= consulta]
+  
+\printbibliography [keyword= consulta, title = FONTES DE CONSULTA]
+\endgroup
+
 % ----------------------------------------------------------
 
 % Ajuste vertical dos titulos dos capitulos postextuais
