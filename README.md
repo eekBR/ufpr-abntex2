@@ -1,7 +1,5 @@
 # ufpr-abntex2
 
-
-
 ## O modelo criado:
  
  - fig.jpg
@@ -11,7 +9,6 @@
  - TermoA1.pdf
  - FichaC1.pdf arquicos pdf do termo de aprovação  e ficha catalográfica. Para que os arquivos sejam inseridos nos 
  locais devidos, deve-se colocá-lo na pasta: metadados/ e retirar o algarismo 1 no final dos nomes dos arquivos.
- 
  
  - 00-dados.tex 
    Possui os dados necessários para identificar o autor, instituição, trabalho, preambulo, resumo, epígrafe
@@ -41,11 +38,8 @@
 ## Instruções para o uso da customização:
 
 1. Utilize a codificação UTF-8 para trabalhar com a customização;
-
 2. Tenha a disposição um compilador com o pdfLaTeX;
-
 3. Edite as informações solicitadas no arquivo 00.dados.tex
-
 4. Compile o arquivo main.tex 
 
 ## Qualquer dúvida ou comentário:  emilio.kavamura@ufpr.br ou eek.edu@outlook.com
@@ -75,7 +69,7 @@ Para inserir uma figura com o comando \includegraphicx para ficar de acordo com 
 
 \imagem{Título da imagem}{largura}{figura com sua localização }{Fonteda figura}{label}{alguma nota}{alguma legenda}
 
-'''
+```
 \figura
 {FIGURA DE TIPOS PARA IMPRESSAO}  % Titulo
 {.750}                            % %da largura da linha
@@ -86,14 +80,13 @@ Para inserir uma figura com o comando \includegraphicx para ficar de acordo com 
 	Esta eh uma nota musical. Esta eh uma nota e esta 
 	eh uma outra nota}            % Texto da Nota
 {Nao quero colocar legenda.}      % Texto da Legenda
-'''
+```
 
 Para fazer referencia a esta figura, basta digitar \autoref{fig:tipoex}.
 
 
 Para inserir um elemento gráfico gerado/compativel com o LaTeX, você tem o comando imagem com 7 parâmetros:
-
-'''
+```
 % simplificação para colocar figuras
 % ----------------------------------------------------------
 %   Parametros
@@ -115,11 +108,11 @@ Para inserir um elemento gráfico gerado/compativel com o LaTeX, você tem o com
 	Esta eh uma nota musical. Esta eh uma nota e esta 
 	eh uma outra nota}            % Texto da Nota
 {Nao quero colocar legenda.}      % Texto da Legenda
-'''
+```
 
 Para fazer referência a esta figura, basta digitar \autoref{fig:tipoex}
 
-'''
+```
 % simplificação para colocar imagens
 % ----------------------------------------------------------
 %   Parametros
@@ -131,7 +124,7 @@ Para fazer referência a esta figura, basta digitar \autoref{fig:tipoex}
 %    6 legenda
 
 \imagem{Titulo}{arg2}{fonte}{label}{nota(s)}{legenda(s)}
-'''
+```
 
 Para fazer referência a esta figura é da mesma forma, \autoref{fig:label}
 
@@ -144,7 +137,7 @@ Lembrando que quadros tem informações e são fechados lateralmente e verticalm
 ### \subsection[Quadros]{Inserir quadros}\label{ssec:quadros}
 Para inserir um quadro são necessários 6 parâmetros:
 
-'''
+```
 % ----------------------------------------------------------
 %   Parametros
 %    1 caption
@@ -153,13 +146,13 @@ Para inserir um quadro são necessários 6 parâmetros:
 %    4 qua:label
 %    5 nota
 %    6 legenda
-'''
+```
 
 Os elemento tabulados foram inseridos no ambiente tabular, com as laterais e parte superior e inferior fechados. 
 
 Este ambiente não quebra  sua estrutura em páginas.
 
-'''
+```
 \qquadro{Prefixos convencionados para referencias}
 {\footnotesize
 	\begin{tabular}{|l*{6}{|c}|}\hline
@@ -173,16 +166,14 @@ Este ambiente não quebra  sua estrutura em páginas.
 		\textbf{prefixos}:&inum &ali&teo& axi &lst&\\\hline
 \end{tabular}}
 {O autor(2021)}{quadrinho}{}{}
-'''
-
+```
 Para fazer referência a este quadro, o comando \autoref{qua:quadrinho}
-
 
 ### \subsection[Tabelas]{Inserir tabelas}
 
 Para inserir uma tabela o comando é muito parecido, mas a normalização utilizada é o do IBGE na ABNT-UFPR.
 
-"""
+```
 % simplificação para colocar tabelas
 % ----------------------------------------------------------
 %   Parametros
@@ -203,7 +194,7 @@ Para inserir uma tabela o comando é muito parecido, mas a normalização utiliz
 		estrada& 16.2 & 20.7& 13.4 \\\hline
 \end{tabular}}
 {\textcite{0230}}{exemplo}{Uma nota}{Uma legenda}
-'''
+```
 
 Para fazer referência a este quadro, o comando \autoref{tab:exemplo}
 
@@ -211,55 +202,46 @@ Para fazer referência a este quadro, o comando \autoref{tab:exemplo}
 
 De preferencia ao uso do ambiente align:
 
-'''
+```
 	\begin{align}
 		x + y &= 0\\
 		x - y &= 2 \label{eq:2}
 	\end{align}
-'''
+```
 
 ### \subsection[Acronimos]{Siglas e símbolos}
 
-\begin{enumerate}
-	\item \criarsimbolo{$\alpha$}{coeficiente de dilatação térmica} cria o símbolo e deixa anotado no texto $\beta$;
-	
-	\item \verb+\criarsigla{UFPR}{Universidade Federal do Paraná}+ \criarsigla{UFPR}{Universidade Federal do Paraná}\label{item:UFPR}
-	
-	\item \criarsigla*{ABNT}{Associação Brasileira de Normas Técnicas} cria a sigla e deixa anotado no texto ABNT (Associação Brasileira de Normas Técnicas);
-\end{enumerate}
-
+1. \criarsimbolo{$\alpha$}{coeficiente de dilatação térmica} cria o símbolo e deixa anotado no texto $\beta$;
+2. \verb+\criarsigla{UFPR}{Universidade Federal do Paraná}+ \criarsigla{UFPR}{Universidade Federal do Paraná}\label{item:UFPR}
+3. \criarsigla*{ABNT}{Associação Brasileira de Normas Técnicas} cria a sigla e deixa anotado no texto ABNT (Associação Brasileira de Normas Técnicas);
 
 ### \subsection[Citações]{Citações e referências}
 
-
-Para criar citações indiretas: Segundo \textcite{BiblatexABNT}
-
-Para citações diretas: "[...] tudo bem quando acaba bem."\cite{BiblatexABNT}.
+- Para criar citações indiretas: Segundo \textcite{BiblatexABNT}
+- Para citações diretas: "[...] tudo bem quando acaba bem."\cite{BiblatexABNT}.
 
 #### \subsubsection{Criação de referencias citadas}
 
 Para as citações feitas para serem empregadas no texto eu customizei a separação das referências bibliográficas através de \textit{keys}.
 
 
-
-
 #### \subsubsection{Criação de referencias consultadas}
 
 A criação de uma bibliografia consultada após o capítulo de referências do trabalho é feita para as referências que foram utilizadas com o \textit{key}:
 
-'''
+```
 	\begin{lstlisting}
 	....
 	key={consultada},
 	....
 	\end{lstlisting}  = {consulta},
-'''
+```
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 no arquivo referencias.bib, no manual ABNTeX2Modelo-glossario foi adicionado a key de consulta.
 
-'''
+```
 @Manual{abntex2modelo-glossario,
 	Title                    = {Exemplo de uso de gloss{\'a}rio com abnTeX2},
 	Author                   = {abnTeX2},
@@ -271,31 +253,18 @@ no arquivo referencias.bib, no manual ABNTeX2Modelo-glossario foi adicionado a k
 	Url                      = {http://abntex2.googlecode.com/},
 	key                      = {consulta},
 }
-'''
+```
 
 adicionada a chave key = {consulta} para que ele seja mencionado na lista de obras  consultadas.
 
 
 #### \subsubsection{Para fazer referência às seções ou elementos enumerados}
 
-\begin{enumerate}
-	\item Capítulos: \verb+\autoref{cha:introd}+ \autoref{cha:introd}
-	
-	\item Seções: \verb+\autoref{sec:util}+ \autoref{sec:util}
-	
-	\item Subseções: \verb+\autoref{ssec:imafig}+ \autoref{ssec:imafig}
-	
-	\item Imagens: \verb+\autoref{sssec:imagem}+ \autoref{sssec:imagem}
-	
-	\item Apêndices: \verb+\autoref{ap:primeiroAp}+ não criei neste documento i o label para o apêndice
-	
-	\item Anexos: \verb+\autoref{ax:primeiroAx}+ não criei neste documento i o label para o anexo
-	
-	\item Equações: \verb+\autoref{eq:2}+ \autoref{eq:2} 
-	
-	\item Itens enumerados \verb+\autoref{item:UFPR}+ é a sigla de onde eu trabalho.
-	
-\end{enumerate}
-
-
-
+	1. Capítulos: \verb+\autoref{cha:introd}+ \autoref{cha:introd}
+	2. Seções: \verb+\autoref{sec:util}+ \autoref{sec:util}
+	3. Subseções: \verb+\autoref{ssec:imafig}+ \autoref{ssec:imafig}
+	4. Imagens: \verb+\autoref{sssec:imagem}+ \autoref{sssec:imagem}
+	5. Apêndices: \verb+\autoref{ap:primeiroAp}+ não criei neste documento i o label para o apêndice
+	6. Anexos: \verb+\autoref{ax:primeiroAx}+ não criei neste documento i o label para o anexo
+	7. Equações: \verb+\autoref{eq:2}+ \autoref{eq:2} 
+	8. Itens enumerados \verb+\autoref{item:UFPR}+ é a sigla de onde eu trabalho.
