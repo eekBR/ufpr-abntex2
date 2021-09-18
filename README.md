@@ -167,6 +167,8 @@ Este ambiente não quebra  sua estrutura em páginas.
 \end{tabular}}
 {O autor(2021)}{quadrinho}{}{}
 ```
+A citação da fonte é feita por \citefig{bibkey}.
+
 Para fazer referência a este quadro, o comando \autoref{qua:quadrinho}
 
 ### \subsection[Tabelas]{Inserir tabelas}
@@ -195,6 +197,7 @@ Para inserir uma tabela o comando é muito parecido, mas a normalização utiliz
 \end{tabular}}
 {\textcite{0230}}{exemplo}{Uma nota}{Uma legenda}
 ```
+A citação da fonte é feita por \citefig{bibkey}.
 
 Para fazer referência a este quadro, o comando \autoref{tab:exemplo}
 
