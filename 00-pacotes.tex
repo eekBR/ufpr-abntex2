@@ -161,3 +161,18 @@
 \DeclareMathOperator{\tgh}{tgh}
 \DeclareMathOperator{\cossec}{cossec}
 %\DeclareMathOperator{\sen}{sen}
+
+% Para fazer a listagem de codigos LaTeX na documentação
+% ----------------------------------------------------------
+\usepackage{listings}
+
+%Comando para fazer 
+%    a citação de documentos não publicados e informais e 
+%    colocar as referências nas notas de rodapé
+% ----------------------------------------------------------
+
+\newcommand{\citenp}[1]{
+\cite{#1}\footnote{\fullcite{#1}}}
+
+\newcommand{\textcitenp}[1]{
+	\textcite{#1}\footnote{\fullcite{#1}}}
