@@ -123,17 +123,8 @@
      
 % Define a formatação dos capítulos póstextuais numerados
 % ----------------------------------------------------------
-\newcommand{\poschap}[1]{
-	\stepcounter{chapter}
-	\markboth{#1}{#1}%
-	\pdfbookmark[2]{#1}{#1}
-	\addtocontents{toc}{\vspace{-0pt}}
-	\addcontentsline{toc}{chapter}{\hspace{14.5mm}\textbf{\appendixname~
-	\thechapter~- #1}}
-	\chapter*{\appendixname\space\space\thechapter~- \uppercase{#1}}%
-	{}
-}
-\newcommand{\refap}[1]{\hyperref[#1]{Apêndice~\ref{#1}}} 	% Referência apÊndices
+%\newcommand{\refap}[1]{\hyperref[#1]{Apêndice~\ref{#1}}} 	% Referência apÊndices
+
 % uso do tikz e pgfplots
 % ----------------------------------------------------------
 %\usetikzlibrary{external}
