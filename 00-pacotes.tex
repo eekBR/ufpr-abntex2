@@ -56,7 +56,10 @@
     giveninits=true,
     uniquename=false,
     uniquelist=false]{biblatex}
-    
+
+% Norma NBR10.520/2023 - Sobrenomes em minúsculas
+\renewcommand*{\mkbibnamefamily}[1]{#1}%
+
 % Espaçamento entre os itens nas referências (espço de uma linha simples)
 % ----------------------------------------------------------
 \setlength\bibitemsep{\baselineskip}
