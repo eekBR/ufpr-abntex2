@@ -194,4 +194,18 @@
  % Norma NBR10.520/2023 - Sobrenomes em minúsculas
 \renewcommand*{\mkbibnamefamily}[1]{#1}%
 
+%fullcite com todos autores e não como cite
+\makeatletter
+\newcommand{\tempmaxup}[1]{\def\blx@maxcitenames{99}#1}
+\makeatother
+
+\DeclareCiteCommand{\fullcite}[\tempmaxup]
+{\usebibmacro{prenote}}
+{\usedriver
+	{}
+	{\thefield{entrytype}}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
+
+
 
