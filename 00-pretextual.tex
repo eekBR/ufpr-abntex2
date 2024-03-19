@@ -140,13 +140,20 @@
 }{}
 
 
+
 % inserir lista de abreviaturas e siglas 
-% inserir lista de símbolos
 % ----------------------------------------------------------
 
  \ifthenelse{\equal{\terSiglasAbrev}{Sim}}{
     \imprimirlistadesiglas
     \cleardoublepage
+}{}
+
+
+% inserir lista de símbolos
+% ----------------------------------------------------------
+
+ \ifthenelse{\equal{\terSimbolos}{Sim}}{
     \imprimirlistadesimbolos
     \cleardoublepage
  }{}
