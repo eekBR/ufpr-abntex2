@@ -675,16 +675,16 @@
   \noindent
   %\rule{\myboxlen}{1pt}\\
   \begin{table}[!ht]
-    \centering\footnotesize
+    \footnotesize
     \par\caption{\uppercase{#1}}
-    
+    \centering
     \par  #2
  
     \label{tab:#4}
  
      \begin{minipage}{\myboxlen} 
         \vspace{2mm}\footnotesize
-        %\begin{flushleft}
+        \begin{flushleft}
             FONTE:~ #3
             
             \ifthenelse{\equal{#5}{}}{}
@@ -692,7 +692,7 @@
             
             \ifthenelse{\equal{#6}{}}{}
             {\hangindent=14mm LEGENDA: #6}
-        %\end{flushleft}
+        \end{flushleft}
     \end{minipage}
 \end{table}
   % \centering
@@ -732,10 +732,10 @@
    %\begin{center}
    \sbox{\myboxq}{#2}
    \settowidth{\myboxlenq}{\usebox{\myboxq}}
-   \begin{quadro} \footnotesize
+   \begin{quadro} \footnotesize\centering
         \caption{\uppercase{#1}}
 	\label{qua:#4}
-        \centering\noindent 
+        \noindent 
         
         #2 %placed inside the environment
 	
