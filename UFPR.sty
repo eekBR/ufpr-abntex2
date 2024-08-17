@@ -735,7 +735,7 @@
    \begin{quadro} \footnotesize
         \caption{\uppercase{#1}}
 	\label{qua:#4}
-        \noindent 
+        \centering\noindent 
         
         #2 %placed inside the environment
 	
@@ -746,14 +746,14 @@
     	
 	\begin{minipage}{\myboxlenq} \footnotesize
     	    \vspace{2mm}\centering
-    		%\begin{flushleft}
+    		\begin{flushleft}
     		\par FONTE:~#3
     		\ifthenelse{\equal{#5}{}}{}
     		{ \par\hangindent=14mm NOTA: #5 }
     				
     		\ifthenelse{\equal{#6}{}}{}
     		{ \par\hangindent=14mm LEGENDA: #6 }
-    		%\end{flushleft}
+    		\end{flushleft}
     	\end{minipage}
     %\end{center}
     \label{qua:#4}
