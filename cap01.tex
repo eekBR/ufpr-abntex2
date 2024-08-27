@@ -246,33 +246,33 @@ Para citações diretas: "[...] tudo bem quando acaba bem."\cite{abntex2cite}. \
 
 \subsubsection{Criação de referencias citadas}
 
-Para as citações feitas para serem empregadas no texto eu customizei a separação das referências bibliográficas através de \textit{keys}.
+Para as citações feitas para serem empregadas no texto eu customizei a separação das referências bibliográficas através de \textit{keywords}.
 
 
 \subsubsection{Criação de referencias consultadas}
 
-A criação de uma bibliografia consultada após o capítulo de referências do trabalho é feita para as referências que foram utilizadas com o \textit{key}= {consulta}:
+A criação de uma bibliografia consultada após o capítulo de referências do trabalho é feita para as referências que foram utilizadas com o \textit{keywords}= {consulta}:
 
 \begin{lstlisting}
 ....
-key={consultada},
+keywords={consultada},
 ....
 \end{lstlisting}  
 
 
 \subsubsection{Criação de referencias de documentos não publicados ou informais}
 
-A criação de uma bibliografia consultada após o capítulo de referências do trabalho é feita para as referências que foram utilizadas com o \textit{key}= {npub-informal}:
+A criação de uma bibliografia consultada após o capítulo de referências do trabalho é feita para as referências que foram utilizadas com o \textit{keywords}= {npub-informal}:
 
 \begin{lstlisting}
 ....
-key={npub-informal},
+keywords={npub-informal},
 ....
 \end{lstlisting}  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-no arquivo referencias.bib, no manual ABNTeX2Modelo-glossario foi adicionado a key de consulta.
+no arquivo referencias.bib, no manual ABNTeX2Modelo-glossario foi adicionado a keywords de consulta.
 
 \begin{lstlisting}
 @Manual{abntex2modelo-glossario,
@@ -284,30 +284,22 @@ no arquivo referencias.bib, no manual ABNTeX2Modelo-glossario foi adicionado a k
 	Date-added  = {2013-03-11 13:38:46 +0000},
 	Date-modified={2013-04-05 11:03:36 +0000},
 	Url         = {http://abntex2.googlecode.com/},
-	key         = {consulta},
+	keywords    = {consulta},
 }
 \end{lstlisting}
 
-adicionada a chave \textit{key}= = {consulta} para que ele seja mencionado na lista de obras consultadas.
+adicionada a chave \textit{keywords} = {consulta} para que ele seja mencionado na lista de obras consultadas.
 
 
 \subsubsection{Para fazer referência às seções ou elementos enumerados}
 
 \begin{lstlisting}
 1. Capitulos: \verb+\autoref{cha:introd}+ 
-
 2. Secoes: \verb+\autoref{sec:util}+ 
-
 3. Subsecoes: \verb+\autoref{ssec:imafig}+
-
 4. Imagens: \verb+\autoref{sssec:imagem}+ 
-
 5. Apendices: \verb+\autoref{ap:primeiroAp}+ 
-          
 6. Anexos: \verb+\autoref{ax:primeiroAx}+ 
-          
 7. Equacoes: \verb+\autoref{eq:2}+
-
 8. Itens enumerados \verb+\autoref{item:UFPR}+ 
-	
 \end{lstlisting}
