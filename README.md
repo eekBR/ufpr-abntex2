@@ -15,7 +15,10 @@
    lista de siglas e de simbolos,....
  
  - 00-pacotes.tex 	
-   Possui os pacotes customizados para o funcionamento de acordo com as normas da UFPR
+   Possui os pacotes essenciais e customizados para o funcionamento de acordo com as normas da UFPR
+
+- 00-pacotesOpcionais.tex 	
+   Possui os pacotes adicionais e customizados para o uso mais eficaz do LaTeX de acordo com as normas da UFPR
    
  - 00-pretextual.tex 	
    Utilização dos arquivos de entrada de dados e de pacotes para criar os elementos prétextuais
