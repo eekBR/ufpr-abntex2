@@ -5,40 +5,11 @@
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}		    	% Controle das cores
-\usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{ifthen}		    	% para montar condicionais
 \usepackage[brazil]{babel}		% para utilizar termos em portugues
 \usepackage[final]{pdfpages}    % para incluir páginas de arquivos pdf
-\usepackage{lipsum}				% para geração de dummy text
-\usepackage{csquotes}
-
-%\usepackage[style=long]{glossaries}
-%\usepackage{abntex2glossaries}
-
-
-\usepackage{cancel} 		% permite representar o cancelamento de termos em texto ou equacoes	
-\usepackage{xcolor} 		% cores extendidas	
-\usepackage{smartdiagram}   	% gera diagramas a partir de listas
-%\usepackage{float} 		% Para a figura ficar na posição correta	    
-\usepackage{textcomp} 		% supporte para fontes da Text Companion 
-\usepackage{longtable}		% uso de longtable
-\usepackage{amsmath}		% simbolos matematicos
-\usepackage{lscape}		% páginas em paisagem
-\usepackage{multicol}		% mescla de colunas em tabelas
-\usepackage{multirow}		% mescla de linhas em tabelas
-\usepackage{newfloat} 		% criação do indice de quadros
-%\usepackage{caption} 		% configura legenda 
-	%[format=plain]
-	%\renewcommand\caption[1]{%
-    	%\captionsetup{font=small}	% tamanho da fonte 10pt
-    	%,format=hang
- 	% \caption{#1}}
-	%\captionsetup{width=0.8\textwidth}
-\captiondelim{-- }
-\captiontitlefont{\small}
-\captionnamefont{\small}
+\usepackage{amsmath}			% simbolos matematicos
 
 % Pacotes de citações BibLaTeX
 % ----------------------------------------------------------
@@ -146,49 +117,7 @@
 % ----------------------------------------------------------
 %\newcommand{\refap}[1]{\hyperref[#1]{Apêndice~\ref{#1}}} 	% Referência apÊndices
 
-% uso do tikz e pgfplots
-% ----------------------------------------------------------
-%\usetikzlibrary{external}
-\usetikzlibrary{arrows,calc,patterns,angles,quotes}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.15}
 
-% Define o comando para citação de fontes em elementos gráficos (figuras, imagens,...).
-% ----------------------------------------------------------
-%  AUTOR(ano)
-%
-% parâmetro é a bibkey da fonte
-  
-\newcommand{\citefig}[2]{~\Citeauthor*{#1}\citeyear{#1}}
-
-% Define os operadores matemáticos em portugues
-% ----------------------------------------------------------
-%
-
-\DeclareMathOperator{\tr}{tr}
-\DeclareMathOperator{\sen}{sen}
-\DeclareMathOperator{\senh}{senh}
-%\DeclareMathOperator{\tag}{tag}
-\DeclareMathOperator{\tg}{tg}
-\DeclareMathOperator{\tagh}{tagh}
-\DeclareMathOperator{\tgh}{tgh}
-\DeclareMathOperator{\cossec}{cossec}
-%\DeclareMathOperator{\sen}{sen}
-
-% Para fazer a listagem de codigos LaTeX na documentação
-% ----------------------------------------------------------
-\usepackage{listings}
-
-% Comando para fazer 
-%    a citação de documentos não publicados e informais e 
-%    colocar as referências nas notas de rodapé
-% ----------------------------------------------------------
-
-\newcommand{\citenp}[1]{
-\cite{#1}\footnote{\fullcite{#1}}}
-
-\newcommand{\textcitenp}[1]{
-	\textcite{#1}\footnote{\fullcite{#1}}}
 
  %%%%%%%%%%% NBR 10520/23
 
@@ -207,6 +136,4 @@
 	{\thefield{entrytype}}}
 {\multicitedelim}
 {\usebibmacro{postnote}}
-
-
 
