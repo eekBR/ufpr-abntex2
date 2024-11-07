@@ -3,14 +3,22 @@
 Esta é uma série para apresentar o uso do template e não uma documentação da customização. Este documento pressume que você conheça algumas características de uso do LaTeX, caso não tenha nenhuma informação/formação, basta acessar o documento de documentação em pdf deste repositório. Nele você encontrará um curso básico de LaTeX para utilizar a customização sem muitas dificuldades.
 
 Claro, a curva de aprendizado inicial é difícil de ser percorrida. Depois de se acostumar, fica mais simples e satisfatório.
+
 \section{UTILIZAÇÃO DESTE TEMPLATE} \label{sec:util}
 
-Veja que é necessário colocar os títulos do capítulo e da seção em caixa alta. É recomendado ter um texto entre as seções do documento.
+Veja que é necessário colocar os títulos do capítulo e da seção em caixa alta. 
+
+É recomendado ter um texto entre as seções do documento.
 
 Você pode digitar o texto e utilizar os recursos do LaTeX para colocar os elementos gráficos, tabelas, quadros, expressões matemáticas, siglas, símbolos, citações e referências. Foram configurados alguns comandos para facilitar o seu trabalho.
+
+
 \subsection[Imagens]{Imagens e figuras}\label{ssec:imafig}
 
-Para inserir uma figura com o comando \verb+\includegraphics+ para ficar de acordo com a normalização ABNT-UFPR:
+Para inserir uma figura use o comando \verb+\includegraphics+ 
+para ficar de acordo com a normalização ABNT-UFPR pode-se usar o comando que esta no 00-pacotesOpcioais.tex:
+
+
 \subsubsection{imagem}\label{sssec:imagem}
 
 \verb+\imagem{Título da imagem}{largura}+ 
@@ -34,7 +42,7 @@ Para inserir uma figura com o comando \verb+\includegraphics+ para ficar de acor
 
 Para fazer referencia a esta figura, basta digitar \verb+\autoref{fig:tipoex}+.
 
-Para inserir um elemento gráfico gerado/compativel com o LaTeX, você tem o comando imagem com 7 parâmetros:
+Para inserir um elemento gráfico gerado/compativel com o \LaTeX, você tem o comando imagem com 7 parâmetros que está definido no arquivo 00-pacotesOpcionais.tex:
 
 \begin{lstlisting}
 % simplificacao para colocar figuras
@@ -97,7 +105,7 @@ Para fazer referência a esta figura é da mesma forma,\verb+\autoref{fig:label}
 Lembrando que quadros tem informações e são fechados lateralmente e verticalmente, tem a posição do título, fonte, nota e legenda diferentes da tabela.
 \subsection[Quadros]{Inserir quadros}\label{ssec:quadros}
 
-Para inserir um quadro são necessários 6 parâmetros:
+Para inserir um quadro são necessários 6 parâmetros, o qual está no arquivo 00-pacotesOpcionais.tex:
 
 \begin{lstlisting}
 % ----------------------------------------------------------
@@ -165,6 +173,7 @@ Para fazer referência a este quadro, o comando \verb+\autoref{qua:quadrinho1}+,
 \subsection[Tabelas]{Inserir tabelas}
 
 Para inserir uma tabela o comando é muito parecido, mas a normalização utilizada é o do IBGE na ABNT-UFPR.
+Este comando também está no arquivo 00-pacotesOpcionais.tex
 
 \begin{lstlisting}
 % simplificacao para colocar tabelas
@@ -204,6 +213,8 @@ Para inserir uma tabela o comando é muito parecido, mas a normalização utiliz
 A citação da fonte é feita por \verb+\textcite{bibkey}+.
 
 Para fazer referência a este quadro, o comando \verb+\autoref{tab:exemplo}+, \autoref{tab:exemplo}
+
+
 \subsection[Equações]{Expressões matemáticas}
 
 De preferencia ao uso do ambiente align:
@@ -221,8 +232,10 @@ x + y &= 0\\
 x - y &= 2 \label{eq:2}
 \end{align}
 
+
 \subsection[Acronimos]{Siglas e símbolos}
 
+Para a criação de lista de siglas e de símbolos, há um conjunto de comandos no arquivo 00-pacotesOpcionais.tex:
 
 \verb+\criarsimbolo{$\alpha$}{coeficiente de dilatação térmica}+ 
 
