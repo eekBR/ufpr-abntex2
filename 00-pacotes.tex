@@ -13,6 +13,8 @@
 \usepackage[final]{pdfpages}    % para incluir páginas de arquivos pdf
 \usepackage{amsmath}			% simbolos matematicos
 
+\usepackage{ragged2e}           % Opcional, para melhor controle alinhamento das referencias
+
 % Pacotes de citações BibLaTeX
 % ----------------------------------------------------------
 \usepackage[style=abnt,
@@ -34,9 +36,23 @@
 % Norma NBR10.520/2023 - Sobrenomes em minúsculas
 \renewcommand*{\mkbibnamefamily}[1]{#1}%
 
-% Espaçamento entre os itens nas referências (espço de uma linha simples)
 % ----------------------------------------------------------
-\setlength\bibitemsep{\baselineskip}
+% Ajusta o espaçamento interno das referências (equivale ao \onehalfspacing ou \doublespacing)
+% ----------------------------------------------------------
+\renewcommand*{\bibsetup}{%
+  \renewcommand{\baselinestretch}{1.0}       % <-- FORÇA espaçamento 1.0 DENTRO de cada referência
+  \RaggedRight
+  \interlinepenalty=5000\relax
+  \setlength{\parskip}{0pt}%
+  \setlength{\itemsep}{0pt}%
+  \setlength{\parsep}{0pt}%
+  \setlength{\bibitemsep}{0.5\baselineskip} % Espaço ENTRE referências
+  \setlength{\bibparsep}{\parskip}% Espaço entre parágrafos na mesma referência
+  \setlength{\abovedisplayskip}{0pt}%
+  \setlength{\belowdisplayskip}{0pt}%
+  \setlength{\abovedisplayshortskip}{0pt}%
+  \setlength{\belowdisplayshortskip}{0pt}%
+}
 
 % Texto padrão para as referências
 % ----------------------------------------------------------
