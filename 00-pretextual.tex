@@ -66,7 +66,7 @@
 % resumo em português
 %\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
  \ifthenelse{\equal{\terResumos}{Sim}}{
-\begin{resumo}
+\begin{resumo}\SingleSpacing
     \ResumoTexto
     
     %\vspace{\onelineskip}
@@ -76,7 +76,7 @@
 
 %% resumo em inglês
 \begin{resumo}[ABSTRACT]
- \begin{otherlanguage*}{english}
+ \begin{otherlanguage*}{english}\SingleSpacing
    \AbstractTexto
    
    %\vspace{\onelineskip}
@@ -91,7 +91,7 @@
 {}
 {
  \begin{resumo}[RESUME]%Résumé
-  \begin{otherlanguage*}{french}
+  \begin{otherlanguage*}{french}\SingleSpacing
      \Resume
      
      %\vspace{\onelineskip}
@@ -104,7 +104,7 @@
 % resumo em espanhol
 \ifthenelse{\equal{\Resume}{}}{}
 { \begin{resumo}[RESUMEN]
-  \begin{otherlanguage*}{spanish}
+  \begin{otherlanguage*}{spanish}\SingleSpacing
     \Resumen 
    
    %\vspace{\onelineskip}
